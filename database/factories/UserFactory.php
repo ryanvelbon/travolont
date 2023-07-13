@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,6 +20,7 @@ class UserFactory extends Factory
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'dob' => fake()->dateTimeBetween('-50 years', '-18 years')->format('Y-m-d'),
+            'nationality' => Country::inRandomOrder()->first(),
         ];
     }
 
