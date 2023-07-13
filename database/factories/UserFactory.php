@@ -18,6 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'account_type' => 'traveler',
             'username' => fake()->username(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
