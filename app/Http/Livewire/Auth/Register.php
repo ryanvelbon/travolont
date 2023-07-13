@@ -46,7 +46,7 @@ class Register extends Component
 
         Auth::login($user, true);
 
-        return redirect()->intended(route('home'));
+        return redirect()->route('profile.edit');
     }
 
     public function render()
