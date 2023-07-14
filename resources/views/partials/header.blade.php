@@ -26,6 +26,7 @@
         </button>
       </div>
       <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
+        @auth
         <button type="button" class="flex-shrink-0 rounded-full bg-white h-8 w-8 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
           <span class="sr-only">View notifications</span>
           <i class="fa-regular fa-bell fa-lg"></i>
@@ -56,9 +57,20 @@
             <!-- Active: "bg-gray-100", Not Active: "" -->
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="block px-4 py-2 text-sm text-gray-700">Sign out</button>
+            </form>
           </div>
         </div>
+        @else
+          <div class="flex flex-1 items-center justify-end gap-x-6">
+            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in</a>
+            @if (Route::has('register'))
+              <a href="{{ route('register') }}" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</a>
+            @endif
+          </div>
+        @endauth
       </div>
     </div>
     <nav class="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
@@ -80,6 +92,7 @@
       <a href="#" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 block rounded-md py-2 px-3 text-base font-medium">Link</a>
     </div>
     <div class="border-t border-gray-200 pb-3 pt-4">
+      @auth
       <div class="flex items-center px-4">
         <div class="flex-shrink-0">
           <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
@@ -96,8 +109,19 @@
       <div class="mt-3 space-y-1 px-2">
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Your Profile</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Settings</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Sign out</a>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</button>
+        </form>
       </div>
+      @else
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 px-2">
+        @if (Route::has('register'))
+          <a href="{{ route('register') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-white bg-blue-500 hover:bg-blue-400">Register</a>
+        @endif
+        <a href="{{ route('login') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-white bg-red-500 hover:bg-red-400">Log in</a>
+      </div>
+      @endauth
     </div>
   </nav>
 </header>
