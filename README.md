@@ -2,8 +2,6 @@
 
     CREATE DATABASE travolont;
 
-    $ php artisan migrate
-
 ### Countries, States, Cities
 
 Download the [world.sql](https://github.com/dr5hn/countries-states-cities-database/blob/master/sql/world.sql) script.
@@ -23,3 +21,9 @@ Connect to your MySQL server
 Run the SQL file
 
     > \source world.sql
+
+If you run `SHOW TABLES` you should now see a total of 3 tables: `cities`, `countries`, and `states`.
+
+Now run your migrations.
+
+    $ php artisan migrate
