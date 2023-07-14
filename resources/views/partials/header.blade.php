@@ -3,7 +3,9 @@
     <div class="relative flex h-16 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
         <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=primary&shade=600" alt="Your Company">
+          <a href="{{ route('home') }}">
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=primary&shade=600" alt="Your Company">
+          </a>
         </div>
       </div>
       <div class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
@@ -55,7 +57,7 @@
               x-transition:leave-end="transform opacity-0 scale-95"
             >
               <!-- Active: "bg-gray-100", Not Active: "" -->
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+              <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -107,7 +109,7 @@
           </button>
         </div>
         <div class="mt-3 space-y-1 px-2">
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Your Profile</a>
+          <a href="{{ route('profile.edit') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Your Profile</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Settings</a>
           <form method="POST" action="{{ route('logout') }}">
             @csrf
