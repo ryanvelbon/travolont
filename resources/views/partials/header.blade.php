@@ -3,7 +3,7 @@
     <div class="relative flex h-16 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
         <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=primary&shade=600" alt="Your Company">
         </div>
       </div>
       <div class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
@@ -13,13 +13,13 @@
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <i class="fa-regular fa-magnifying-glass text-gray-400"></i>
             </div>
-            <input id="search" name="search" class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Search" type="search">
+            <input id="search" name="search" class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6" placeholder="Search" type="search">
           </div>
         </div>
       </div>
       <div class="relative z-10 flex items-center lg:hidden">
         <!-- Mobile menu button -->
-        <button type="button" @click="open = !open" class="inline-flex items-center justify-center rounded-md h-8 w-8 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" @click="open = !open" class="inline-flex items-center justify-center rounded-md h-8 w-8 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open menu</span>
           <i x-show="!open" class="fa-light fa-bars fa-lg"></i>
           <i x-show="open" class="fa-light fa-xmark fa-lg"></i>
@@ -27,7 +27,7 @@
       </div>
       <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
         @auth
-          <button type="button" class="flex-shrink-0 rounded-full bg-white h-8 w-8 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <button type="button" class="flex-shrink-0 rounded-full bg-white h-8 w-8 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
             <span class="sr-only">View notifications</span>
             <i class="fa-regular fa-bell fa-lg"></i>
           </button>
@@ -35,7 +35,7 @@
           <!-- Profile dropdown -->
           <div x-data="{ open: false }" class="relative ml-4 flex-shrink-0">
             <div>
-              <button type="button" @click="open = !open" class="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <button type="button" @click="open = !open" class="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
                 <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
               </button>
@@ -67,7 +67,7 @@
           <div class="flex flex-1 items-center justify-end gap-x-6">
             <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Log in</a>
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</a>
+              <a href="{{ route('register') }}" class="rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Register</a>
             @endif
           </div>
         @endauth
@@ -101,7 +101,7 @@
             <div class="text-base font-medium text-gray-800">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</div>
             <div class="text-sm font-medium text-gray-500">{{ auth()->user()->email }}</div>
           </div>
-          <button type="button" class="ml-auto flex-shrink-0 rounded-full bg-white w-8 h-8 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <button type="button" class="ml-auto flex-shrink-0 rounded-full bg-white w-8 h-8 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
             <span class="sr-only">View notifications</span>
             <i class="fa-regular fa-bell fa-lg"></i>
           </button>
@@ -117,9 +117,9 @@
       @else
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 px-2">
           @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-white bg-blue-500 hover:bg-blue-400">Register</a>
+            <a href="{{ route('register') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-white bg-primary-500 hover:bg-primary-400">Register</a>
           @endif
-          <a href="{{ route('login') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-white bg-red-500 hover:bg-red-400">Log in</a>
+          <a href="{{ route('login') }}" class="block px-3 py-2 text-sm font-medium uppercase text-center tracking-wide text-gray-900 bg-primary-100 hover:bg-primary-200">Log in</a>
         </div>
       @endauth
     </div>
