@@ -13,6 +13,7 @@ class ProfileEdit extends Component
     protected $rules = [
         'user.first_name'  => 'required|min:2',
         'user.last_name'   => 'required|min:2',
+        'user.sex'         => 'required|in:m,f',
         'user.nationality' => 'required|exists:countries,id',
     ];
 

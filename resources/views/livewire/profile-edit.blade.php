@@ -46,6 +46,25 @@
                 <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
             @endError
         </div>
+
+        <div>
+            <label class="text-base font-semibold text-gray-900">Gender</label>
+            <fieldset class="mt-4">
+            <div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+              <div class="flex items-center">
+                <input wire:model.lazy="user.sex" value="m" id="male" type="radio" checked class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                <label for="male" class="ml-3 block text-sm font-medium leading-6 text-gray-900">Male</label>
+              </div>
+              <div class="flex items-center">
+                <input wire:model.lazy="user.sex" value="f" id="female" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                <label for="female" class="ml-3 block text-sm font-medium leading-6 text-gray-900">Female</label>
+              </div>
+            </div>
+            </fieldset>
+            @error('user.sex')
+                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+            @endError
+        </div>
     </div>
 
     <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2">Save</button>

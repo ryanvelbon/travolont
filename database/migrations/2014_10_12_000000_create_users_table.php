@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->date('dob')->nullable();
+            $table->char('sex', 1)->nullable();
             $table->unsignedMediumInteger('nationality')->nullable();
 
             // foreign key constraints
