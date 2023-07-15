@@ -40,4 +40,17 @@ class User extends Authenticatable
     {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    public function profile()
+    {
+        if ($this->account_type === 'host') {
+            return $this->hasOne(Host::class);
+        }
+        elseif ($this->account_type === 'traveler') {
+            return $this->hasOne(Traveler::class);
+        }
+        else {
+            return null;
+        }
+    }
 }

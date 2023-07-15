@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Providers\RouteServiceProvider;
+use App\Models\Host;
 use App\Models\User;
+use App\Models\Traveler;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
@@ -41,6 +43,13 @@ class Register extends Component
             'password' => Hash::make($this->password),
             'account_type' => $this->accountType,
         ]);
+
+        // create an empty profile
+        if ($user->account_type === 'host') {
+            Host::create(['user_id' => $user->id]);
+        } elseif ($user->account_type === 'traveler') {
+            Traveler::create(['user_id' => $user->id]);
+        }
 
         event(new Registered($user));
 
