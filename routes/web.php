@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\HostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TravelerController;
@@ -26,7 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/travelers', [TravelerController::class, 'index'])->name('travelers.index');;
+Route::get('/hosts', [HostController::class, 'index'])->name('hosts.index');
+Route::get('/travelers', [TravelerController::class, 'index'])->name('travelers.index');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
