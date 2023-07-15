@@ -5,16 +5,20 @@
     <div class="md:col-span-2 bg-gray-200 p-2">
         <h2>results</h2>
         <div>
-            @forelse($members as $member)
+            @forelse($hosts as $host)
                 <div class="bg-gray-400 p-4 mt-2">
-                    {{ $member->full_name }}
+                    <h3 class="text-lg font-bold">{{ $host->user->full_name }}</h3>
+                    <p>
+                        <i class="fa-regular fa-location-dot"></i>
+                        <span>{{ $host->city->name }}</span>
+                    </p>
                 </div>
             @empty
                 <div class="bg-gray-200 text-gray-700">No results.</div>
             @endforelse
         </div>
         <div class="p-6">
-            {{ $members->links() }}
+            {{ $hosts->links() }}
         </div>
     </div>
 </div>

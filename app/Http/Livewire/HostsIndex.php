@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
+use App\Models\Host;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,11 +12,10 @@ class HostsIndex extends Component
 
     public function render()
     {
-        $members = User::where('account_type', 'host')
-                        ->paginate(10);
+        $hosts = Host::paginate(10);
 
         return view('livewire.hosts-index', [
-            'members' => $members,
+            'hosts' => $hosts,
         ]);
     }
 }
