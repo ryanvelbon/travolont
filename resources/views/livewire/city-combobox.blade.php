@@ -1,8 +1,10 @@
-<div>
+<div x-data="{ open: false }">
   <label for="combobox" class="block text-sm font-medium leading-6 text-gray-900">City</label>
   <div class="relative mt-2">
     <input
       wire:model="search"
+      @click.away="open = false"
+      @input="open = true"
       id="combobox"
       type="text"
       placeholder="Search..."
@@ -11,7 +13,10 @@
       role="combobox" aria-controls="options" aria-expanded="false"
     >
 
-    <ul class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" id="options" role="listbox">
+    <ul
+      x-show="open && $wire.search.length > 0"
+      class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" id="options" role="listbox"
+    >
       <!--
         Combobox option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
