@@ -11,9 +11,13 @@ class CityCombobox extends Component
 
     public function render()
     {
-        $cities = City::where('name', 'LIKE', $this->search . '%')
-                    ->take(10)
-                    ->get();
+        $cities = collect();
+
+        if(strlen($this->search) >= 1) {
+            $cities = City::where('name', 'LIKE', $this->search . '%')
+                        ->take(10)
+                        ->get();
+        }
 
         return view('livewire.city-combobox', [
             'cities' => $cities
