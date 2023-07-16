@@ -14,7 +14,8 @@ return new class extends Migration
             $table->unsignedMediumInteger('city_id')->nullable();
             $table->string('website')->nullable();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedTinyInteger('max_hours_per_day')->nullable();
             $table->unsignedTinyInteger('n_days_per_week')->nullable();
             $table->unsignedTinyInteger('min_stay_days')->nullable();
@@ -23,6 +24,7 @@ return new class extends Migration
 
             // foreign key constraints
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('type_id')->references('id')->on('host_types');
         });
     }
 

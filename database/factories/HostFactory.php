@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\City;
+use App\Models\HostType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,6 +18,7 @@ class HostFactory extends Factory
                             ->first(),
             'website' => null,
             'title' => rtrim(fake()->sentence(), '.'),
+            'type_id' => HostType::inRandomOrder()->first(),
             'description' => fake()->paragraph(3),
             'max_hours_per_day' => rand(1,8),
             'n_days_per_week' => rand(2,6),

@@ -30,4 +30,9 @@ class Host extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function type()
+    {
+        return $this->belongsTo(HostType::class);
+    }
 }

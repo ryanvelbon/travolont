@@ -10,6 +10,10 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $this->call([
+            HostTypesTableSeeder::class,
+        ]);
+
         Host::factory(20)->create();
 
         Traveler::factory(100)->create();

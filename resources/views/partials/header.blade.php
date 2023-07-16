@@ -78,9 +78,11 @@
     <nav class="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
       <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
       <a href="#" class="bg-gray-100 text-gray-900 inline-flex items-center rounded-md py-2 px-3 text-sm font-medium" aria-current="page">Link</a>
-      <a href="#" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 inline-flex items-center rounded-md py-2 px-3 text-sm font-medium">Link</a>
-      <a href="#" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 inline-flex items-center rounded-md py-2 px-3 text-sm font-medium">Link</a>
-      <a href="#" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 inline-flex items-center rounded-md py-2 px-3 text-sm font-medium">Link</a>
+      @foreach(App\Models\HostType::all() as $hostType)
+        <a href="#" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 inline-flex items-center rounded-md py-2 px-3 text-sm font-medium">
+          <i class="fa-solid fa-{{ $hostType->icon }}"></i>
+        </a>
+      @endforeach
     </nav>
   </div>
 
