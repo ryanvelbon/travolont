@@ -7,17 +7,15 @@ use Livewire\Component;
 
 class CityCombobox extends Component
 {
-    public $search;
+    public $search = '';
 
     public function render()
     {
         $cities = collect();
 
-        if(strlen($this->search) >= 1) {
-            $cities = City::where('name', 'LIKE', $this->search . '%')
-                        ->take(10)
-                        ->get();
-        }
+        $cities = City::where('name', 'LIKE', $this->search . '%')
+                    ->take(10)
+                    ->get();
 
         return view('livewire.city-combobox', [
             'cities' => $cities
