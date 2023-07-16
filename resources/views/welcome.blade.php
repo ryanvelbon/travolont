@@ -17,7 +17,7 @@
             <div class="bg-gray-200 flex flex-col justify-center items-center h-40 rounded-xl">
                 <h3 class="text-2xl font-bold">{{ $city->name }}</h3>
                 <span class="text-sm text-gray-600">{{ $city->country->name }}</span>
-                <span class="mt-4 text-gray-700">200+ hosts</span>
+                <span class="mt-4 text-gray-700">{{ $city->hosts()->count() }} hosts</span>
             </div>
         </a>
         @endforeach
