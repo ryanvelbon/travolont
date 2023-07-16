@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="bg-gray-200 py-32">
-    <h2 class="text-7xl font-bold">Welcome, traveler!</h2>
-    <div class="flex space-x-6 mt-4">
-        <a href="{{ route('travelers.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Travelers</a>
-        <a href="{{ route('hosts.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Hosts</a>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-7xl font-bold">Welcome, traveler!</h2>
+        <div class="flex space-x-6 mt-4 lg:mt-8">
+            <a href="{{ route('travelers.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Travelers</a>
+            <a href="{{ route('hosts.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Hosts</a>
+        </div>
     </div>
 </div>
 <div class="bg-white">
