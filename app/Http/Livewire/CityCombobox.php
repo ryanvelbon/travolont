@@ -9,6 +9,13 @@ class CityCombobox extends Component
 {
     public $search = '';
 
+    protected $listeners = ['citySelected' => 'onCitySelected'];
+
+    public function onCitySelected($cityId)
+    {
+        $this->search = City::find($cityId)->name;
+    }
+
     public function render()
     {
         $cities = collect();
