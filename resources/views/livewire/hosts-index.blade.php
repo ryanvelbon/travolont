@@ -1,6 +1,6 @@
 <div class="md:flex">
-    <div class="bg-gray-300">
-        filters
+    <div wire:listen="citySelected" class="bg-gray-300 md:w-96">
+        @livewire('city-combobox')
     </div>
     <div class="grow bg-gray-200 p-2">
         <h2>results</h2>

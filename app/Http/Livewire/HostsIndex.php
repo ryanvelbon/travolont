@@ -10,9 +10,24 @@ class HostsIndex extends Component
 {
     use WithPagination;
 
+    public $city;
+
+    protected $listeners = ['citySelected' => 'onCitySelected'];
+
+    public function onCitySelected($cityId)
+    {
+        $this->city = $cityId;
+    }
+
     public function render()
     {
-        $hosts = Host::paginate(10);
+        $query = Host::query();
+
+        if (!empty($this->city)) {
+            $query->where('city_id', $this->city);
+        }
+
+        $hosts = $query->paginate(10);
 
         return view('livewire.hosts-index', [
             'hosts' => $hosts,
