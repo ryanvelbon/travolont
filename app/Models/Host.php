@@ -13,6 +13,8 @@ class Host extends Model
         'user_id',
         'city_id',
         'website',
+        'title',
+        'description',
         'max_hours_per_day',
         'n_days_per_week',
         'min_stay_days',

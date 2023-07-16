@@ -16,6 +16,8 @@ class HostFactory extends Factory
                             ->inRandomOrder()
                             ->first(),
             'website' => null,
+            'title' => rtrim(fake()->sentence(), '.'),
+            'description' => fake()->paragraph(3),
             'max_hours_per_day' => rand(1,8),
             'n_days_per_week' => rand(2,6),
             'min_stay_days' => rand(1,5),

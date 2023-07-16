@@ -13,6 +13,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->unique();
             $table->unsignedMediumInteger('city_id')->nullable();
             $table->string('website')->nullable();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->unsignedTinyInteger('max_hours_per_day')->nullable();
             $table->unsignedTinyInteger('n_days_per_week')->nullable();
             $table->unsignedTinyInteger('min_stay_days')->nullable();
