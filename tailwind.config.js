@@ -18,6 +18,7 @@ module.exports = {
                     900: '#0b5c10',
                     950: '#003406',
                 },
+                // test: { 1: '#afa', 2: '#aaf', 3: '#faa', 4: '#aff' }
             },
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
