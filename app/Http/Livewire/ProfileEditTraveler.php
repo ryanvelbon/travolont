@@ -8,6 +8,6 @@ class ProfileEditTraveler extends Component
 {
     public function render()
     {
-        return view('livewire.profile-edit-traveler');
+        return view('livewire.profile-edit-traveler')->extends('layouts.auth');
     }
 }

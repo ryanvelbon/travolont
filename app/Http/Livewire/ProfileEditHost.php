@@ -8,6 +8,6 @@ class ProfileEditHost extends Component
 {
     public function render()
     {
-        return view('livewire.profile-edit-host');
+        return view('livewire.profile-edit-host')->extends('layouts.auth');
     }
 }

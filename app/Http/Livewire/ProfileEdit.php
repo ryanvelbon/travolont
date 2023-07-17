@@ -26,7 +26,7 @@ class ProfileEdit extends Component
 
     public function render()
     {
-        return view('livewire.profile-edit');
+        return view('livewire.profile-edit')->extends('layouts.auth');
     }
 
     public function save()
