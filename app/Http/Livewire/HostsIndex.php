@@ -11,14 +11,14 @@ class HostsIndex extends Component
 {
     use WithPagination;
 
-    public $city;
+    public $selectedCity;
     public $selectedHostTypes = [];
 
     protected $listeners = ['citySelected' => 'onCitySelected'];
 
     public function onCitySelected($cityId)
     {
-        $this->city = $cityId;
+        $this->selectedCity = $cityId;
     }
 
     public function updated()
@@ -30,8 +30,8 @@ class HostsIndex extends Component
     {
         $query = Host::query();
 
-        if (!empty($this->city)) {
-            $query->where('city_id', $this->city);
+        if (!empty($this->selectedCity)) {
+            $query->where('city_id', $this->selectedCity);
         }
 
         if (!empty($this->selectedHostTypes)) {

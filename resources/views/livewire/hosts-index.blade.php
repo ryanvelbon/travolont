@@ -30,7 +30,12 @@
 
     </div>
     <div class="grow bg-gray-200 p-2">
-        <h2 class="text-2xl font-bold">{{ $hosts->total() }} Volunteering Opportunities in City</h2>
+        <h2 class="text-2xl font-bold">
+            {{ $hosts->total() }} Volunteering Opportunities
+            @if($selectedCity)
+                in {{ App\Models\City::find($selectedCity)->name }}
+            @endif
+        </h2>
         <div>
             @forelse($hosts as $host)
                 <a href="#">
