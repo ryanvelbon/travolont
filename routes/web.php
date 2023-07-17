@@ -28,10 +28,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/', [PageController::class, 'home'])
+    ->name('home');
 
-Route::get('/hosts', [HostController::class, 'index'])->name('hosts.index');
-Route::get('/travelers', [TravelerController::class, 'index'])->name('travelers.index');
+Route::get('/hosts', [HostController::class, 'index'])
+    ->name('hosts.index');
+
+Route::get('/travelers', [TravelerController::class, 'index'])
+    ->name('travelers.index');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -64,7 +68,14 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 
-    Route::get('profile/me/basic-info', ProfileEdit::class)->name('profile.edit');
-    Route::get('profile/me/host', ProfileEditHost::class)->name('profile.edit.host');
-    Route::get('profile/me/traveler', ProfileEditTraveler::class)->name('profile.edit.traveler');
+    Route::get('profile/me/basic-info', ProfileEdit::class)
+        ->name('profile.edit');
+
+    Route::get('profile/me/host', ProfileEditHost::class)
+        ->middleware('accountType:host')
+        ->name('profile.edit.host');
+
+    Route::get('profile/me/traveler', ProfileEditTraveler::class)
+        ->middleware('accountType:traveler')
+        ->name('profile.edit.traveler');
 });
