@@ -1,9 +1,33 @@
-<div class="md:flex">
+<div class="lg:flex">
     <div
         wire:listen="citySelected"
-        class="bg-gray-300 md:w-96 p-2"
+        class="bg-gray-300 lg:w-[16rem] p-2 flex-none"
     >
         @livewire('city-combobox')
+
+        <fieldset class="mt-4">
+            <legend class="text-base font-semibold leading-6 text-gray-900">What experience?</legend>
+            <div class="mt-1">
+                @foreach($hostTypes as $hostType)
+                <div class="relative flex items-start py-1">
+                    <div class="min-w-0 flex-1 text-xs leading-6">
+                        <i class="fa-solid fa-{{ $hostType->icon }}"></i>
+                        <label for="host-type-{{ $hostType->id }}" class="select-none font-medium text-gray-900 ml-2">{{ $hostType->title }}</label>
+                    </div>
+                    <div class="ml-3 flex h-6 items-center">
+                        <input
+                            wire:model="selectedHostTypes"
+                            value="{{ $hostType->id }}"
+                            id="host-type-{{ $hostType->id }}"
+                            type="checkbox"
+                            class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-600"
+                        >
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </fieldset>
+
     </div>
     <div class="grow bg-gray-200 p-2">
         <h2 class="text-2xl font-bold">{{ $hosts->total() }} Volunteering Opportunities in City</h2>
