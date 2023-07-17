@@ -12,6 +12,8 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\ProfileEditHost;
+use App\Http\Livewire\ProfileEditTraveler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 
-    Route::get('profile/edit', [ProfileController::class, 'edit'])
-        ->name('profile.edit');
+    Route::get('profile/me/basic-info', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('profile/me/host', ProfileEditHost::class)->name('profile.edit.host');
+    Route::get('profile/me/traveler', ProfileEditTraveler::class)->name('profile.edit.traveler');
 });

@@ -35,6 +35,15 @@ class ProfileEdit extends Component
 
         $this->user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        switch ($this->user->account_type) {
+            case 'host':
+                return redirect()->route('profile.edit.host');
+            case 'traveler':
+                return redirect()->route('profile.edit.traveler');
+            default:
+                return redirect()->route('home');
+        }
+
+        // return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 }
