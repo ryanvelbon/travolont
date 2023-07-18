@@ -65,6 +65,54 @@
                 <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
             @endError
         </div>
+
+        <div class="col-span-2">
+            <label for="dob_day" class="block text-sm font-medium leading-6 text-gray-900">Birthday</label>
+            <div class="grid grid-cols-3 gap-2">
+                <select
+                    wire:model.lazy="dob_day"
+                    id="dob_day"
+                    class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                >
+                    <option selected>Day</option>
+                    @for($i=1; $i<=31; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <select
+                    wire:model.lazy="dob_month"
+                    class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                >
+                    <option selected value="">Month</option>
+                    @foreach(range(1, 12) as $month)
+                        <option value="{{ $month }}">{{ date('F', mktime(0, 0, 0, $month, 10)) }}</option>
+                    @endforeach
+                </select>
+                <select
+                    wire:model.lazy="dob_year"
+                    class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                >
+                    <option selected>Year</option>
+                    @for($i=2010; $i>=1900; $i--)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+            <div>
+                @error('dob_day')
+                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                @enderror
+                @error('dob_month')
+                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                @enderror
+                @error('dob_year')
+                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                @enderror
+            </div>
+            @error('user.dob')
+                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+            @endError
+        </div>
     </div>
 
     <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2">Save</button>
