@@ -52,7 +52,7 @@
         </div>
 
         <div>
-            <label class="text-base font-semibold text-gray-900">Gender</label>
+            <label for="male">Gender</label>
             <fieldset class="mt-4">
             <div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
               <div class="flex items-center">
