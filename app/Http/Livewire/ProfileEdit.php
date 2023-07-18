@@ -33,9 +33,11 @@ class ProfileEdit extends Component
 
         $this->user = auth()->user();
 
-        $this->dob_day = $this->user->dob->day;
-        $this->dob_month = $this->user->dob->month;
-        $this->dob_year = $this->user->dob->year;
+        if ($this->user->dob) {
+            $this->dob_day = $this->user->dob->day;
+            $this->dob_month = $this->user->dob->month;
+            $this->dob_year = $this->user->dob->year;
+        }
     }
 
     public function updated()
