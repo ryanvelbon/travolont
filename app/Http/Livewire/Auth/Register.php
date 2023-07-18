@@ -31,7 +31,7 @@ class Register extends Component
     public function register()
     {
         $this->validate([
-            'username' => ['required', 'alpha_num:ascii', 'max:50', 'unique:users'],
+            'username' => ['required', 'alpha_num:ascii', 'min:5', 'max:50', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
             'accountType' => 'required|in:traveler,host',
