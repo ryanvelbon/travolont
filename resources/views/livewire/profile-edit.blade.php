@@ -18,7 +18,7 @@
             <div>
                 <input wire:model.lazy="user.first_name" id="firstName" type="text">
                 @error('user.first_name')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                    <div class="input-error-msg">{{ $message }}</div>
                 @endError
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div>
                 <input wire:model.lazy="user.last_name" id="lastName" type="text">
                 @error('user.last_name')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                    <div class="input-error-msg">{{ $message }}</div>
                 @endError
             </div>
         </div>
@@ -43,7 +43,7 @@
                 @endforeach
             </select>
             @error('user.nationality')
-                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>
 
@@ -62,7 +62,7 @@
             </div>
             </fieldset>
             @error('user.sex')
-                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>
 
@@ -100,17 +100,17 @@
             </div>
             <div>
                 @error('dob_day')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                    <div class="input-error-msg">{{ $message }}</div>
                 @enderror
                 @error('dob_month')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                    <div class="input-error-msg">{{ $message }}</div>
                 @enderror
                 @error('dob_year')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                    <div class="input-error-msg">{{ $message }}</div>
                 @enderror
             </div>
             @error('user.dob')
-                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+                <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>
     </div>

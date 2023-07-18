@@ -32,7 +32,7 @@
                     </div>
 
                     @error('email')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        <p class="input-error-msg">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -46,7 +46,7 @@
                     </div>
 
                     @error('password')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        <p class="input-error-msg">{{ $message }}</p>
                     @enderror
                 </div>
 
