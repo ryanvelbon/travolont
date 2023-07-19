@@ -85,6 +85,30 @@ textarea {
     @apply border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red-500;
 }
 
+.tab {
+    @apply flex whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium;
+}
+
+.tab-current {
+    @apply border-primary-500 text-primary-600;
+}
+
+.tab-default {
+    @apply border-transparent text-gray-500 hover:border-gray-200 hover:text-gray-700;
+}
+
+.tab-badge {
+    @apply ml-3 hidden rounded-full py-0.5 px-2.5 text-xs font-medium md:inline-block;
+}
+
+.tab-badge-current {
+    @apply bg-primary-100 text-primary-600;
+}
+
+.tab-badge-default {
+    @apply bg-gray-100 text-gray-900;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

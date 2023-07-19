@@ -37,6 +37,9 @@ Route::get('/hosts', [HostController::class, 'index'])
 Route::get('/travelers', [TravelerController::class, 'index'])
     ->name('travelers.index');
 
+Route::get('/travelers/{username}', [TravelerController::class, 'show'])
+    ->name('travelers.show');
+
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');

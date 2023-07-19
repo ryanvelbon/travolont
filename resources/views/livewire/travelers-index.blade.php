@@ -25,11 +25,13 @@
     <!-- Results -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         @forelse($members as $member)
-            <div class="bg-gray-200 p-4">
-                <h3>{{ $member->full_name }}</h3>
-                <p>{{ $member->sex }}</p>
-                <span>{{ $member->dob ? $member->dob->age : '' }}</span>
-            </div>
+            <a href="{{ route('travelers.show', $member->username) }}">
+                <div class="bg-gray-200 p-4">
+                    <h3>{{ $member->full_name }}</h3>
+                    <p>{{ $member->sex }}</p>
+                    <span>{{ $member->dob ? $member->dob->age : '' }}</span>
+                </div>
+            </a>
         @empty
             <div class="bg-gray-200 text-gray-700">No results.</div>
         @endforelse
