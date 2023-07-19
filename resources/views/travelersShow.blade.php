@@ -117,7 +117,9 @@
         <!-- Tab Contents -->
         <div x-show="tab === 'about'" class="mt-2">About Content</div>
         <div x-show="tab === 'experience'" class="mt-2">Experience Content</div>
-        <div x-show="tab === 'references'" class="mt-2">References Content</div>
+        <div x-show="tab === 'references'" class="mt-2">
+          @include('partials.reviews')
+        </div>
         <div x-show="tab === 'friends'" class="mt-2">Friends Content</div>
 
       </div>
