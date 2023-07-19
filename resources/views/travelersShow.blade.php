@@ -66,7 +66,7 @@
     </section>
 
     <section class="grow">
-      <div class="bg-white p-4 shadow-md sm:rounded-2xl">
+      <div x-data="{ tab: 'references' }" class="bg-white p-4 shadow-md sm:rounded-2xl">
         <header class="sm:flex sm:justify-between">
           <div>
             <ul class="text-xs text-gray-400">
@@ -82,22 +82,29 @@
 
         <div class="border-b border-gray-200">
           <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-            <a href="#" class="tab tab-default">
+            <a href="#" @click.prevent="tab = 'about'" :class="tab === 'about' ? 'tab-current' : 'tab-default'" class="tab">
               About
             </a>
-            <a href="#" class="tab tab-default">
+            <a href="#" @click.prevent="tab = 'experience'" :class="tab === 'experience' ? 'tab-current' : 'tab-default'" class="tab">
               Experience
             </a>
-            <a href="#" class="tab tab-current" aria-current="page">
+            <a href="#" @click.prevent="tab = 'references'" :class="tab === 'references' ? 'tab-current' : 'tab-default'" class="tab" aria-current="page">
               References
-              <span class="tab-badge tab-badge-current">4</span>
+              <span class="tab-badge" :class="tab === 'references' ? 'tab-badge-current' : 'tab-badge-default'">4</span>
             </a>
-            <a href="#" class="tab tab-default">
+            <a href="#" @click.prevent="tab = 'friends'" :class="tab === 'friends' ? 'tab-current' : 'tab-default'" class="tab">
               Friends
-              <span class="tab-badge tab-badge-default">52</span>
+              <span class="tab-badge" :class="tab === 'friends' ? 'tab-badge-current' : 'tab-badge-default'">52</span>
             </a>
           </nav>
         </div>
+
+        <!-- Tab Contents -->
+        <div x-show="tab === 'about'" class="mt-2">About Content</div>
+        <div x-show="tab === 'experience'" class="mt-2">Experience Content</div>
+        <div x-show="tab === 'references'" class="mt-2">References Content</div>
+        <div x-show="tab === 'friends'" class="mt-2">Friends Content</div>
+
       </div>
     </section>
 
