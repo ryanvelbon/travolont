@@ -29,7 +29,15 @@
 
           <li class="flex justify-between">
             <div class="flex items-center">
-              <i class="fa-solid fa-location-dot"></i>
+              <i class="fa-solid w-4 fa-venus-mars"></i>
+              <span class="ml-2">Age & Sex</span>
+            </div>
+            <span class="font-bold truncate">23, Male</span>
+          </li>
+
+          <li class="flex justify-between">
+            <div class="flex items-center">
+              <i class="fa-solid w-4 fa-location-dot"></i>
               <span class="ml-2">From</span>
             </div>
             <span class="font-bold truncate">Malaysia</span>
@@ -37,7 +45,7 @@
 
           <li class="flex justify-between">
             <div class="flex items-center">
-              <i class="fa-solid fa-user"></i>
+              <i class="fa-solid w-4 fa-user"></i>
               <span class="ml-2">Member since</span>
             </div>
             <span class="font-bold">Dec 2020</span>
@@ -45,19 +53,19 @@
 
           <li class="flex justify-between">
             <div class="flex items-center">
-              <i class="fa-solid fa-briefcase"></i>
+              <i class="fa-solid w-4 fa-briefcase"></i>
               <span class="ml-2">Occupation</span>
             </div>
             <span class="font-bold truncate">Mechanical Engineer</span>
           </li>
 
           <li class="mt-8 text-green-600">
-            <i class="fa-solid fa-badge-check"></i>
+            <i class="fa-solid w-4 fa-badge-check"></i>
             <span class="ml-2">Phone verified</span>
           </li>
 
           <li>
-            <i class="fa-solid fa-badge"></i>
+            <i class="fa-solid w-4 fa-badge"></i>
             <span class="ml-2">Government ID not verified</span>
           </li>
 
@@ -67,16 +75,23 @@
 
     <section class="grow">
       <div x-data="{ tab: 'references' }" class="bg-white p-4 shadow-md sm:rounded-2xl">
-        <header class="sm:flex sm:justify-between">
+        <header class="sm:flex sm:justify-between space-y-4">
           <div>
-            <ul class="text-xs text-gray-400">
+            <h2 class="text-2xl font-bold text-gray-900">Leonard Krasner</h2>
+            <ul class="text-xs text-gray-400 mt-2">
               <li>43% response rate</li>
               <li>Last login about 9 hours ago</li>
             </ul>
           </div>
           <div>
-            <button class="btn btn-primary-outline">Button 1</button>
-            <button class="btn btn-primary">Button 2</button>
+            <button type="button" class="inline-flex items-center gap-x-2 rounded-full bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:ring-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
+              <i class="fa-regular fa-envelope"></i>
+              Message
+            </button>
+            <button type="button" class="inline-flex items-center gap-x-2 rounded-full bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
+              <i class="fa-regular fa-user-plus"></i>
+              Follow
+            </button>
           </div>
         </header>
 
