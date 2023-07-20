@@ -187,13 +187,13 @@
       </div>
     </div>
 
-    <main class="bg-blue-200 lg:px-8">
+    <main class="bg-test-2 lg:px-8">
       <div class="border-b border-gray-200 pb-10">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
         <p class="mt-4 text-base text-gray-500">Checkout out the latest release of Basic Tees, new and improved with four openings!</p>
       </div>
 
-      <div class="bg-red-200 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+      <div class="bg-test-3 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
         <aside>
           <h2 class="sr-only">Filters</h2>
 
@@ -207,6 +207,25 @@
 
           <div class="hidden lg:block">
             <form class="space-y-10 divide-y divide-gray-200">
+              <div>
+                <legend class="block text-sm font-medium text-gray-900">Gender</legend>
+                <fieldset>
+                  <div class="space-y-1 pt-6">
+                    <div>
+                      <input wire:model.lazy="sex" value="m" id="male" type="radio">
+                      <label class="ml-2 text-sm text-gray-600" for="male">Male</label>
+                    </div>
+                    <div>
+                      <input wire:model.lazy="sex" value="f" id="female" type="radio">
+                      <label class="ml-2 text-sm text-gray-600" for="female">Female</label>
+                    </div>
+                    <div>
+                      <input wire:model.lazy="sex" value="" id="both" type="radio">
+                      <label class="ml-2 text-sm text-gray-600" for="both">Both</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
               <div>
                 <fieldset>
                   <legend class="block text-sm font-medium text-gray-900">Color</legend>
