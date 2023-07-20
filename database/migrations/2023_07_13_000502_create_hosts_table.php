@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('hosts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->unique();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE')->unique();
             $table->unsignedMediumInteger('city_id')->nullable();
             $table->string('website')->nullable();
             $table->string('title')->nullable();

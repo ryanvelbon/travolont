@@ -21,7 +21,7 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'dob' => fake()->dateTimeBetween('-50 years', '-18 years')->format('Y-m-d'),
             'sex' => rand(1,10) > 5 ? 'm' : 'f',
-            'nationality' => Country::inRandomOrder()->first(),
+            'nationality_id' => Country::inRandomOrder()->first(),
             'bio' => fake()->paragraph(),
         ];
     }

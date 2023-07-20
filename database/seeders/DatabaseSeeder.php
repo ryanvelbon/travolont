@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
             HostTypesTableSeeder::class,
         ]);
 
-        Host::factory(20)->create();
+        // Host::factory(20)->create();
 
-        Traveler::factory(100)->create();
+        // Traveler::factory(100)->create();
     }
 }

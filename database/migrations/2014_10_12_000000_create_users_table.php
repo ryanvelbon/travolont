@@ -23,11 +23,11 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->date('dob')->nullable();
             $table->char('sex', 1)->nullable();
-            $table->unsignedMediumInteger('nationality')->nullable();
+            $table->unsignedMediumInteger('nationality_id')->nullable();
             $table->text('bio')->nullable();
 
             // foreign key constraints
-            $table->foreign('nationality')->references('id')->on('countries');
+            $table->foreign('nationality_id')->references('id')->on('countries');
         });
     }
 

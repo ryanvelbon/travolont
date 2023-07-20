@@ -338,7 +338,7 @@
                     </div>
                     <p class="text-base leading-7 text-gray-600">
                       <i class="fa-light fa-passport"></i>
-                      Germany
+                      {{ $member->countryOfOrigin->name }}
                     </p>
                   </div>
                 </li>

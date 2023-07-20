@@ -37,7 +37,7 @@
         <div>
             <label for="nationality">Nationality</label>
             <select
-                wire:model.lazy="user.nationality"
+                wire:model.lazy="user.nationality_id"
                 id="nationality"
                 class="mt-2 block w-full"
             >
@@ -46,7 +46,7 @@
                     <option value="{{$country->id}}">{{ $country->name }}</option>
                 @endforeach
             </select>
-            @error('user.nationality')
+            @error('user.nationality_id')
                 <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('travelers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->unique();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE')->unique();
             $table->timestamps();
         });
     }

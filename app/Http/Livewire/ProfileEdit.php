@@ -16,11 +16,11 @@ class ProfileEdit extends Component
     public $dob_year;
 
     protected $rules = [
-        'user.first_name'  => 'required|min:2',
-        'user.last_name'   => 'required|min:2',
-        'user.sex'         => 'required|in:m,f',
-        'user.nationality' => 'required|exists:countries,id',
-        'user.dob'         => 'required|date',
+        'user.first_name'     => 'required|min:2',
+        'user.last_name'      => 'required|min:2',
+        'user.sex'            => 'required|in:m,f',
+        'user.nationality_id' => 'required|exists:countries,id',
+        'user.dob'            => 'required|date',
 
         'dob_day'   => ['required', 'integer', 'between:1,31'],
         'dob_month' => ['required', 'integer', 'between:1,12'],

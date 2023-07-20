@@ -22,7 +22,7 @@ class User extends Authenticatable
         'last_name',
         'dob',
         'sex',
-        'nationality',
+        'nationality_id',
         'bio',
     ];
 
@@ -40,6 +40,11 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function countryOfOrigin()
+    {
+        return $this->belongsTo(Country::class, 'nationality_id');
     }
 
     public function hostProfile()
