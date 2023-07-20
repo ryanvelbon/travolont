@@ -31,7 +31,7 @@
         -->
         <div class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
           <div class="flex items-center justify-between px-4">
-            <h2 class="text-lg font-medium text-gray-900">Filters</h2>
+            <h2 class="text-lg font-medium text-gray-900">Find Travelers</h2>
             <button type="button" class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500">
               <span class="sr-only">Close menu</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -189,11 +189,15 @@
 
     <main class="bg-test-2 lg:px-8">
       <div class="border-b border-gray-200 pb-10">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900">Find fellow Travelers</h1>
         <p class="mt-4 text-base text-gray-500">Checkout out the latest release of Basic Tees, new and improved with four openings!</p>
       </div>
 
-      <div class="bg-test-3 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+      <div class="block lg:hidden bg-gray-300 p-8">
+        Your Advert Here!
+      </div>
+
+      <div class="bg-test-3 bg-red-400 pt-12 lg:grid lg:grid-cols-4 lg:gap-x-8 xl:grid-cols-5">
         <aside>
           <h2 class="sr-only">Filters</h2>
 
@@ -321,7 +325,7 @@
 
         <!-- Results -->
         <div class="bg-test-1 lg:col-span-2 xl:col-span-3">
-          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             @forelse($members as $member)
               <a href="{{ route('travelers.show', $member->username) }}">
                 <div class="bg-gray-200 p-4">
@@ -338,6 +342,10 @@
             {{ $members->links() }}
           </div>
         </div>
+
+        <aside class="bg-gray-300">
+          Your Advert Here!
+        </aside>
       </div>
     </main>
   </div>
