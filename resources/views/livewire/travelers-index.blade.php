@@ -1,38 +1,40 @@
-<div class="bg-white">
+<div
+  x-data="{ mobileFilterDialogOpen: false }"
+  class="bg-white"
+>
   <div>
-    <!--
-      Mobile filter dialog
+    <!-- Mobile filter dialog -->
+    <div
+      x-show="mobileFilterDialogOpen"
+      class="relative z-40 lg:hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        x-show="mobileFilterDialogOpen"
+        x-transition:enter="transition-opacity ease-linear duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity ease-linear duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 bg-black bg-opacity-25"
+      ></div>
 
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-    -->
-    <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-      <!--
-        Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-        Entering: "transition-opacity ease-linear duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "transition-opacity ease-linear duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
-      <div class="fixed inset-0 bg-black bg-opacity-25"></div>
-
-      <div class="fixed inset-0 z-40 flex">
-        <!--
-          Off-canvas menu, show/hide based on off-canvas menu state.
-
-          Entering: "transition ease-in-out duration-300 transform"
-            From: "translate-x-full"
-            To: "translate-x-0"
-          Leaving: "transition ease-in-out duration-300 transform"
-            From: "translate-x-0"
-            To: "translate-x-full"
-        -->
+      <div
+        x-show="mobileFilterDialogOpen"
+        x-transition:enter="transition ease-in-out duration-300 transform"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in-out duration-300 transform"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        class="fixed inset-0 z-40 flex"
+      >
         <div class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
           <div class="flex items-center justify-between px-4">
             <h2 class="text-lg font-medium text-gray-900">Find Travelers</h2>
-            <button type="button" class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500">
+            <button type="button" @click="mobileFilterDialogOpen = false" class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500">
               <span class="sr-only">Close menu</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -48,7 +50,7 @@
                   <!-- Expand/collapse section button -->
                   <button type="button" class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
                     <span class="text-sm font-medium text-gray-900">Color</span>
-                    <span class="ml-6 flex h-7 items-center">
+                    <span class="ml-6 flex h-7 items-center bg-red-600">
                       <!--
                         Expand/collapse icon, toggle classes based on section open state.
 
@@ -197,12 +199,16 @@
         Your Advert Here!
       </div>
 
-      <div class="bg-test-3 bg-red-400 pt-12 lg:grid lg:grid-cols-4 lg:gap-x-8 xl:grid-cols-5">
+      <div class="bg-test-3 pt-12 lg:grid lg:grid-cols-4 lg:gap-x-8 xl:grid-cols-5">
         <aside>
           <h2 class="sr-only">Filters</h2>
 
           <!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
-          <button type="button" class="inline-flex items-center lg:hidden">
+          <button
+            type="button"
+            @click="mobileFilterDialogOpen = true"
+            class="inline-flex items-center lg:hidden mb-6"
+          >
             <span class="text-sm font-medium text-gray-700">Filters</span>
             <svg class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
