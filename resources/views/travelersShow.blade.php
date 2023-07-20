@@ -74,7 +74,7 @@
     </section>
 
     <section class="grow">
-      <div x-data="{ tab: 'about' }" class="bg-white p-4 shadow-md sm:rounded-2xl">
+      <div x-data="{ tab: 'friends' }" class="bg-white p-4 shadow-md sm:rounded-2xl">
         <header class="sm:flex sm:justify-between space-y-4">
           <div>
             <h2 class="text-2xl font-bold text-gray-900">Leonard Krasner</h2>
@@ -122,7 +122,9 @@
         <div x-show="tab === 'references'" class="mt-2">
           @include('partials.reviews')
         </div>
-        <div x-show="tab === 'friends'" class="mt-2">Friends Content</div>
+        <div x-show="tab === 'friends'" class="mt-2">
+          @include('partials.friends')
+        </div>
 
       </div>
     </section>
