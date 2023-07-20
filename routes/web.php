@@ -12,9 +12,11 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\HostsIndex;
 use App\Http\Livewire\ProfileEdit;
 use App\Http\Livewire\ProfileEditHost;
 use App\Http\Livewire\ProfileEditTraveler;
+use App\Http\Livewire\TravelersIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,10 +33,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])
     ->name('home');
 
-Route::get('/hosts', [HostController::class, 'index'])
+Route::get('/hosts', HostsIndex::class)
     ->name('hosts.index');
 
-Route::get('/travelers', [TravelerController::class, 'index'])
+Route::get('/travelers', TravelersIndex::class,)
     ->name('travelers.index');
 
 Route::get('/travelers/{username}', [TravelerController::class, 'show'])
