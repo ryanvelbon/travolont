@@ -316,19 +316,37 @@
 
         <!-- Results -->
         <div class="bg-test-1 lg:col-span-2 xl:col-span-3">
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+          <ul role="list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             @forelse($members as $member)
               <a href="{{ route('travelers.show', $member->username) }}">
-                <div class="bg-gray-200 p-4">
-                  <h3>{{ $member->full_name }}</h3>
-                  <p>{{ $member->sex }}</p>
-                  <span>{{ $member->dob ? $member->dob->age : '' }}</span>
-                </div>
+                <li class="shadow-lg hover:shadow-2xl">
+                  <img class="aspect-[3/2] w-full object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                  <div class="p-3">
+                    <div class="flex justify-between items-center">
+                      <span class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $member->full_name }}</span>
+                      <span class="text-base text-gray-700">
+                        {{ $member->dob ? $member->dob->age : '' }}
+                        @if($member->sex)
+                          @if($member->sex === 'm')
+                            <i class="fa-light fa-mars"></i>
+                          @elseif($member->sex === 'f')
+                            <i class="fa-light fa-venus"></i>
+                          @else
+                          @endif
+                        @endif
+                      </span>
+                    </div>
+                    <p class="text-base leading-7 text-gray-600">
+                      <i class="fa-light fa-passport"></i>
+                      Germany
+                    </p>
+                  </div>
+                </li>
               </a>
             @empty
               <div class="bg-gray-200 text-gray-700">No results.</div>
             @endforelse
-          </div>
+          </ul>
           <div class="p-6">
             {{ $members->links() }}
           </div>
