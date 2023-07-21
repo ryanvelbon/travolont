@@ -334,7 +334,7 @@
                     <div class="flex justify-between items-center">
                       <span class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $member->full_name }}</span>
                       <span class="text-base text-gray-700">
-                        {{ $member->dob ? $member->dob->age : '' }}
+                        {{ $member->age ? $member->age : '' }}
                         @if($member->sex)
                           @if($member->sex === 'm')
                             <i class="fa-light fa-mars"></i>

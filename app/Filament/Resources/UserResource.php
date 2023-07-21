@@ -92,10 +92,7 @@ class UserResource extends Resource
                     ->date()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('age')
-                    ->size('sm')
-                    ->getStateUsing(function (User $record): string {
-                        return $record->dob->age;
-                    }),
+                    ->size('sm'),
                 Tables\Columns\TextColumn::make('sex')
                     ->size('sm'),
             ])

@@ -50,6 +50,11 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->username;
     }
 
+    public function getAgeAttribute()
+    {
+        return $this->dob->age;
+    }
+
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
