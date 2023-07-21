@@ -231,6 +231,19 @@
                 </select>
               </div>
               <div>
+                <label>Age</label>
+                <div class="grid grid-cols-2 gap-4">
+                  <input wire:model="minAge" type="number">
+                  <input wire:model="maxAge" type="number">
+                </div>
+                @error('minAge')
+                  <div class="input-error-msg">{{ $message }}</div>
+                @endError
+                @error('maxAge')
+                  <div class="input-error-msg">{{ $message }}</div>
+                @endError
+              </div>
+              <div>
                 <fieldset>
                   <legend class="block text-sm font-medium text-gray-900">Color</legend>
                   <div class="space-y-3 pt-6">
