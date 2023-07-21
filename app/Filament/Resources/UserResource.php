@@ -17,7 +17,7 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -55,22 +55,49 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nationality_id'),
-                Tables\Columns\TextColumn::make('account_type'),
-                Tables\Columns\TextColumn::make('username'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('countryOfOrigin.name')
+                    ->size('sm')
+                    ->limit(15)
+                    ->label('Nationality'),
+                Tables\Columns\TextColumn::make('account_type')
+                    ->size('sm'),
+                Tables\Columns\TextColumn::make('username')
+                    ->size('sm'),
+                Tables\Columns\TextColumn::make('email')
+                    ->size('sm')
+                    ->limit(20)
+                    ->copyable()
+                    ->copyMessage('Email address copied to clipboard')
+                    ->copyMessageDuration(1500)
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
+                    ->size('sm')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->size('sm')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('first_name'),
-                Tables\Columns\TextColumn::make('last_name'),
+                    ->size('sm')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('first_name')
+                    ->size('sm'),
+                Tables\Columns\TextColumn::make('last_name')
+                    ->size('sm'),
                 Tables\Columns\TextColumn::make('dob')
-                    ->date(),
-                Tables\Columns\TextColumn::make('sex'),
-                Tables\Columns\TextColumn::make('bio'),
+                    ->size('sm')
+                    ->date()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('age')
+                    ->size('sm')
+                    ->getStateUsing(function (User $record): string {
+                        return $record->dob->age;
+                    }),
+                Tables\Columns\TextColumn::make('sex')
+                    ->size('sm'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
