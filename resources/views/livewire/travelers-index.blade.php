@@ -222,6 +222,15 @@
                 </fieldset>
               </div>
               <div>
+                <label for="nationality">Nationality</label>
+                <select wire:model="nationality" id="nationality">
+                  <option selected>-- select --</option>
+                  @foreach($countries as $country)
+                    <option value="{{$country->id}}">{{ $country->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div>
                 <fieldset>
                   <legend class="block text-sm font-medium text-gray-900">Color</legend>
                   <div class="space-y-3 pt-6">
