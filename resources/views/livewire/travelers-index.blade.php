@@ -336,10 +336,11 @@
                         @endif
                       </span>
                     </div>
-                    <p class="text-base leading-7 text-gray-600">
-                      <i class="fa-light fa-passport"></i>
-                      {{ $member->countryOfOrigin->name }}
-                    </p>
+                    <div class="text-base leading-7 text-gray-600 flex items-center gap-2">
+                      <i class="fa-light fa-passport fa-xl"></i>
+                      <img class="w-8 h-6 border-2 border-gray-100" src="{{ asset('images/flags/countries/svg/'. $member->countryOfOrigin->iso2 . '.svg') }}">
+                      <span class="truncate">{{ $member->countryOfOrigin->name }}</span>
+                    </div>
                   </div>
                 </li>
               </a>
