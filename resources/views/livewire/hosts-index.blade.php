@@ -137,15 +137,15 @@
             @forelse($hosts as $host)
               <a href="#">
                 <li class="bg-test-1 bg-white p-4 mt-2 shadow-md">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4">
 
                     <!-- Experience featured image -->
-                    <div class="order-1 md:order-1 bg-test-3">
+                    <div class="order-1 bg-test-3">
                       <img class="rounded-lg" src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500">
                     </div>
 
                     <!-- Experience info -->
-                    <div class="order-2 sm:order-3 md:order-2 sm:col-span-2 bg-test-2">
+                    <div class="order-2 sm:order-3 md:order-2 lg:order-3 xl:order-2 sm:col-span-2 bg-test-2">
                       <div class="flex text-sm text-gray-700">
                         <div>
                           <i class="fa-solid fa-{{$host->type->icon}}"></i>
@@ -161,7 +161,7 @@
                     </div>
 
                     <!-- Host info -->
-                    <div class="order-3 sm:order-2 md:order-3 bg-test-3 p-2 text-center flex">
+                    <div class="order-3 sm:order-2 md:order-3 lg:order-2 xl:order-3 bg-test-3 p-2 text-center flex">
                       <div class="bg-test-4">
                         <img class="rounded-full" src="https://images.unsplash.com/photo-1509506489701-dfe23b067808?w=500" alt="User profile picture">
                         <h3 class="text-md font-semibold mt-2">{{ $host->user->first_name }}</h3>
