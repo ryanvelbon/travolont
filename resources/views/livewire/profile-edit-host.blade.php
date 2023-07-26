@@ -1,60 +1,32 @@
-<div class="sm:mx-auto sm:w-full sm:max-w-md shadow-2xl p-5">
-    <form
-        method="POST"
-        wire:submit.prevent="update"
-    >
-        @csrf
+<div class="sm:mx-auto sm:w-full sm:max-w-xl shadow-2xl p-5">
+    <div class="bg-test-1 min-h-[350]">
+    @if ($step === 1)
+        @include('livewire.host-profile.step1')
+    @elseif ($step === 2)
+        @include('livewire.host-profile.step2')
+    @elseif ($step === 3)
+        @include('livewire.host-profile.step3')
+    @elseif ($step === 4)
+        @include('livewire.host-profile.step4')
+    @elseif ($step === 5)
+        @include('livewire.host-profile.step5')
+    @elseif ($step === 6)
+        @include('livewire.host-profile.step6')
+    @endif
+    </div>
 
-        <h2 class="text-xl font-bold">Edit host profile</h2>
-
-        <div>
-            <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
-            <div class="relative mt-2">
-                <input wire:model.lazy="host.title" type="text" id="title" class="peer block w-full border-0 bg-gray-50 py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Give a catchy title for the experience you are offering">
-                <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-indigo-600" aria-hidden="true"></div>
-                @error('host.title')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
-                @endError
-            </div>
-        </div>
-
-        <div class="mt-4">
-            <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
-            <div class="mt-2">
-                <textarea
-                    wire:model.lazy="host.description"
-                    id="description"
-                    spellcheck="false"
-                    rows="8"
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                ></textarea>
-            </div>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the experience.</p>
-            @error('host.description')
-                <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
-            @endError
-        </div>
-
-        <div class="mt-4">
-            <label>Minimum stay (in days)</label>
+    <div class="flex justify-between">
+        @if ($step > 1)
+            <button wire:click="previousStep" class="btn btn-primary-outline">Previous</button>
+        @else
             <div>
-                <input wire:model.lazy="host.min_stay_days" type="number">
-                @error('host.min_stay_days')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
-                @endError
+                <!-- Empty div for justify-between to work properly. -->
             </div>
-        </div>
-
-        <div class="mt-4">
-            <label>Maximum stay (in days)</label>
-            <div>
-                <input wire:model.lazy="host.max_stay_days" type="number">
-                @error('host.max_stay_days')
-                    <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
-                @endError
-            </div>
-        </div>
-
-        <button type="submit" class="mt-4 btn btn-primary">Save</button>
-    </form>
+        @endif
+        @if ($step === 6)
+            <button class="btn btn-primary">Save</button>
+        @else
+            <button wire:click="step{{ $step }}" class="btn btn-primary-outline">Next</button>
+        @endif
+    </div>
 </div>

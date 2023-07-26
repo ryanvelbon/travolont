@@ -3,10 +3,18 @@
 @section('content')
 <div class="bg-gray-200 py-32">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-7xl font-bold">Welcome, traveler!</h2>
-        <div class="flex space-x-6 mt-4 lg:mt-8">
-            <a href="{{ route('travelers.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Travelers</a>
-            <a href="{{ route('hosts.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Hosts</a>
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="bg-test-1 md:col-span-2">
+                <h2 class="text-7xl font-bold">Explore the World, Create Impact!</h2>
+                <p class="mt-4 text-lg text-slate-700">Experience authentic local cultures, contribute to communities, and make lasting friendships as you volunteer and travel.</p>
+                <div class="flex space-x-6 mt-4 lg:mt-8">
+                    <a href="{{ route('travelers.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Travelers</a>
+                    <a href="{{ route('hosts.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Hosts</a>
+                </div>
+            </div>
+            <div>
+                <!-- keep this empty -->
+            </div>
         </div>
     </div>
 </div>
