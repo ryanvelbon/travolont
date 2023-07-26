@@ -12,6 +12,7 @@ class ProfileEditHost extends Component
     public $step = 1;
 
     protected $rules = [
+        'host.city_id'           => 'required|exists:cities,id',
         'host.title'             => 'required|min:10|max:80',
         'host.description'       => 'required|min:50|max:500',
         'host.max_hours_per_day' => 'required|numeric|min:1|max:12',
@@ -19,6 +20,13 @@ class ProfileEditHost extends Component
         'host.min_stay_days'     => 'required|numeric|min:1|max:180',
         'host.max_stay_days'     => 'required|numeric|min:1|max:180',
         'host.website'           => 'required',
+    ];
+
+    protected $listeners = ['citySelected' => 'onCitySelected'];
+
+    protected $messages = [
+        'host.city_id.required' => 'Search a city and select from the suggested results',
+        'host.city_id.exists'   => 'Select a city from the autocomplete suggestions',
     ];
 
     public function mount()
@@ -33,6 +41,11 @@ class ProfileEditHost extends Component
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
+    public function onCitySelected($cityId)
+    {
+        $this->host->city_id = $cityId;
+    }
+
     public function previousStep()
     {
         $this->step--;
@@ -45,6 +58,8 @@ class ProfileEditHost extends Component
 
     public function step2()
     {
+        $this->validateOnly('host.city_id');
+        $this->host->save();
         $this->step = 3;
     }
 

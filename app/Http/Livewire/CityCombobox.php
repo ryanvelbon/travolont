@@ -7,13 +7,18 @@ use Livewire\Component;
 
 class CityCombobox extends Component
 {
-    public $search = '';
+    public $search;
 
     protected $listeners = ['citySelected' => 'onCitySelected'];
 
     public function onCitySelected($cityId)
     {
         $this->search = City::find($cityId)->name;
+    }
+
+    public function mount($search = null)
+    {
+        $this->search = $search;
     }
 
     public function render()
