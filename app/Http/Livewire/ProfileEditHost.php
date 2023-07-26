@@ -12,6 +12,7 @@ class ProfileEditHost extends Component
     public $step = 1;
 
     protected $rules = [
+        'host.type_id'           => 'required|exists:host_types,id',
         'host.city_id'           => 'required|exists:cities,id',
         'host.title'             => 'required|min:10|max:80',
         'host.description'       => 'required|min:50|max:500',
@@ -25,6 +26,8 @@ class ProfileEditHost extends Component
     protected $listeners = ['citySelected' => 'onCitySelected'];
 
     protected $messages = [
+        'host.type_id.required' => 'Please select a category',
+        'host.type_id.exists'   => 'The category you have chosen is invalid.',
         'host.city_id.required' => 'Search a city and select from the suggested results',
         'host.city_id.exists'   => 'Select a city from the autocomplete suggestions',
     ];
@@ -53,6 +56,8 @@ class ProfileEditHost extends Component
 
     public function step1()
     {
+        $this->validateOnly('host.type_id');
+        $this->host->save();
         $this->step = 2;
     }
 

@@ -12,6 +12,7 @@ class Host extends Model
     protected $fillable = [
         'user_id',
         'city_id',
+        'type_id',
         'website',
         'title',
         'description',
