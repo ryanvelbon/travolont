@@ -18,6 +18,18 @@
         </div>
     </div>
 </div>
+<div class="bg-primary-200">
+    <h2 class="text-4xl font-bold text-center pt-8">Connect with Travelers and Hosts</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 py-8">
+        @for($i=0; $i<2; $i++)
+        <div class="bg-white text-center py-16 px-8 mx-auto max-w-lg">
+            <h2 class="text-gray-800 text-2xl font-bold">Dolor sit amet elit</h2>
+            <p class="text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <a href="" class="btn btn-primary-outline mt-5">Lorem Dolor</a>
+        </div>
+        @endfor
+    </div>
+</div>
 <div class="bg-white">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8">
         @foreach($featCities as $city)
