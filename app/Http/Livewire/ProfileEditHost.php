@@ -10,6 +10,8 @@ class ProfileEditHost extends Component
 {
     public $host;
 
+    public $selectedServices;
+
     public $step = 1;
 
     protected $rules = [
@@ -22,6 +24,8 @@ class ProfileEditHost extends Component
         'host.min_stay_days'     => 'required|numeric|min:1|max:180',
         'host.max_stay_days'     => 'required|numeric|min:1|max:180',
         'host.website'           => 'required',
+
+        'selectedServices'       => 'required|array|min:3|distinct',
     ];
 
     protected $listeners = ['citySelected' => 'onCitySelected'];
@@ -31,11 +35,15 @@ class ProfileEditHost extends Component
         'host.type_id.exists'   => 'The category you have chosen is invalid.',
         'host.city_id.required' => 'Search a city and select from the suggested results',
         'host.city_id.exists'   => 'Select a city from the autocomplete suggestions',
+        'selectedServices.required' => 'Please select the services you require.',
+        'selectedServices.min'      => 'Please select 3 or more services',
     ];
 
     public function mount()
     {
         $this->host = auth()->user()->hostProfile;
+
+        $this->selectedServices = $this->host->helpNeeded->pluck('id')->toArray();
     }
 
     public function render()
@@ -91,6 +99,9 @@ class ProfileEditHost extends Component
 
     public function step5()
     {
+        $this->validateOnly('selectedServices');
+        $this->host->helpNeeded()->sync($this->selectedServices);
+        $this->host->save();
         $this->step = 6;
     }
 

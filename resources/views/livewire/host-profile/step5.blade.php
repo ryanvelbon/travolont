@@ -3,8 +3,15 @@
 <div class="flex flex-wrap justify-center items-center gap-3 p-4">
     @foreach($services as $service)
         <label class="block bg-gray-200 px-5 py-2 rounded-full">
-            <input value="{{ $service->id }}" type="checkbox">
+            <input
+                wire:model="selectedServices"
+                type="checkbox"
+                value="{{ $service->id }}"
+            >
             {{ $service->title }}
         </label>
     @endforeach
 </div>
+@error('selectedServices')
+    <p class="input-error-msg">{{ $message }}</p>
+@endError
