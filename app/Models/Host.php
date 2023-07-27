@@ -32,6 +32,14 @@ class Host extends Model
         return $this->belongsTo(City::class);
     }
 
+    /**
+     * Returns the services the host is looking for.
+     */
+    public function helpNeeded()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
     public function type()
     {
         return $this->belongsTo(HostType::class);

@@ -13,4 +13,12 @@ class Service extends Model
     ];
 
     public $timestamps = false;
+
+    /**
+     * Returns the hosts who require this service.
+     */
+    public function neededBy()
+    {
+        return $this->belongsToMany(Host::class);
+    }
 }
