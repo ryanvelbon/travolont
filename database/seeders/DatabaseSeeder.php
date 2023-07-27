@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             HostTypesTableSeeder::class,
+            ServicesTableSeeder::class,
         ]);
 
         // Host::factory(20)->create();

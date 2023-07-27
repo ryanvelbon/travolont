@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\HostType;
+use App\Models\Service;
 use Livewire\Component;
 
 class ProfileEditHost extends Component
@@ -39,8 +40,11 @@ class ProfileEditHost extends Component
 
     public function render()
     {
+        $services = Service::orderBy('order')->get();
+
         return view('livewire.profile-edit-host', [
             'hostTypes' => HostType::all(),
+            'services'  => $services,
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
