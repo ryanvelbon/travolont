@@ -70,17 +70,17 @@ class ProfileEditHost extends Component
 
     public function step3()
     {
-        $this->validateOnly('host.max_hours_per_day');
-        $this->validateOnly('host.n_days_per_week');
-        $this->validateOnly('host.min_stay_days');
-        $this->validateOnly('host.max_stay_days');
+        $this->validateOnly('host.website');
         $this->host->save();
         $this->step = 4;
     }
 
     public function step4()
     {
-        $this->validateOnly('host.website');
+        $this->validateOnly('host.max_hours_per_day');
+        $this->validateOnly('host.n_days_per_week');
+        $this->validateOnly('host.min_stay_days');
+        $this->validateOnly('host.max_stay_days');
         $this->host->save();
         $this->step = 5;
     }
