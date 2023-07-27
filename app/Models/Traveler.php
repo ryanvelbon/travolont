@@ -17,4 +17,12 @@ class Traveler extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Returns the services the traveler is offering.
+     */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

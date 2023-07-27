@@ -21,4 +21,12 @@ class Service extends Model
     {
         return $this->belongsToMany(Host::class);
     }
+
+    /**
+     * Returns the travelers who are offering this service.
+     */
+    public function offeredBy()
+    {
+        return $this->belongsToMany(Traveler::class);
+    }
 }

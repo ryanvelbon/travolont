@@ -8,16 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('host_service', function (Blueprint $table) {
+        Schema::create('service_traveler', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('host_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('service_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('traveler_id')->constrained()->onDelete('CASCADE');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('host_service');
+        Schema::dropIfExists('service_traveler');
     }
 };
