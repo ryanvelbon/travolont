@@ -12,6 +12,10 @@
         @include('livewire.host-profile.step5')
     @elseif ($step === 6)
         @include('livewire.host-profile.step6')
+    @elseif ($step === 7)
+        @include('livewire.host-profile.step7')
+    @elseif ($step === 8)
+        @include('livewire.host-profile.step8')
     @endif
     </div>
 
@@ -23,10 +27,10 @@
                 <!-- Empty div for justify-between to work properly. -->
             </div>
         @endif
-        @if ($step === 6)
-            <button class="btn btn-primary">Save</button>
+        @if ($step === 8)
+            <a class="btn btn-primary" href="{{ route('hosts.show', $host->user->username ) }}">Preview Profile</a>
         @else
-            <button wire:click="step{{ $step }}" class="btn btn-primary-outline">Next</button>
+            <button wire:click="step{{ $step }}" class="btn btn-primary">Next</button>
         @endif
     </div>
 </div>

@@ -95,5 +95,11 @@ class ProfileEditHost extends Component
         $this->validateOnly('host.title');
         $this->validateOnly('host.description');
         $this->host->save();
+        $this->step = 7;
+    }
+
+    public function step7()
+    {
+        $this->step = 8;
     }
 }

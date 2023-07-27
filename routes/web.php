@@ -36,6 +36,9 @@ Route::get('/', [PageController::class, 'home'])
 Route::get('/hosts', HostsIndex::class)
     ->name('hosts.index');
 
+Route::get('/hosts/{username}', [HostController::class, 'show'])
+    ->name('hosts.show');
+
 Route::get('/travelers', TravelersIndex::class,)
     ->name('travelers.index');
 

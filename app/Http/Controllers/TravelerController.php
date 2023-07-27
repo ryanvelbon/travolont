@@ -11,6 +11,10 @@ class TravelerController extends Controller
     {
         $member = User::where('username', $username)->firstOrFail();
 
+        if($member->account_type !== 'traveler') {
+            abort(404);
+        }
+
         return view('travelersShow', [
             'member' => $member
         ]);
