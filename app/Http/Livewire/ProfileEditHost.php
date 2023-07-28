@@ -17,13 +17,20 @@ class ProfileEditHost extends Component
     protected $rules = [
         'host.type_id'           => 'required|exists:host_types,id',
         'host.city_id'           => 'required|exists:cities,id',
+        'host.is_registered_biz' => 'required',
+        'host.biz_name'          => '',
+        'host.biz_type'          => '',
+        'host.biz_reg_no'        => '',
+        'host.biz_address'       => '',
+        'host.biz_email'         => 'email',
+        'host.biz_phone'         => '',
+        'host.biz_website'       => '',
         'host.title'             => 'required|min:10|max:80',
         'host.description'       => 'required|min:50|max:500',
         'host.max_hours_per_day' => 'required|numeric|min:1|max:12',
         'host.n_days_per_week'   => 'required|numeric|min:1|max:7',
         'host.min_stay_days'     => 'required|numeric|min:1|max:180',
         'host.max_stay_days'     => 'required|numeric|min:1|max:180',
-        'host.website'           => 'required',
 
         'selectedServices'       => 'required|array|min:3|distinct',
     ];
@@ -82,7 +89,14 @@ class ProfileEditHost extends Component
 
     public function step3()
     {
-        $this->validateOnly('host.website');
+        $this->validateOnly('host.is_registered_biz');
+        $this->validateOnly('host.biz_name');
+        $this->validateOnly('host.biz_type');
+        $this->validateOnly('host.biz_reg_no');
+        $this->validateOnly('host.biz_address');
+        $this->validateOnly('host.biz_email');
+        $this->validateOnly('host.biz_phone');
+        $this->validateOnly('host.biz_website');
         $this->host->save();
         $this->step = 4;
     }

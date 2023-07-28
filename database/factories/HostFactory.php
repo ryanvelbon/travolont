@@ -17,7 +17,7 @@ class HostFactory extends Factory
             'city_id' => City::whereNotNull('order')
                             ->inRandomOrder()
                             ->first(),
-            'website' => null,
+            'biz_website' => null,
             'title' => rtrim(fake()->sentence(), '.'),
             'type_id' => HostType::inRandomOrder()->first(),
             'description' => fake()->paragraph(3),
