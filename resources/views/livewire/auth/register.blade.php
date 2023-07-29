@@ -73,20 +73,26 @@
                     </div>
                 </div>
 
-                <div class="mt-6">
-                    <p class="text-sm font-medium text-gray-700 leading-5 text-center">I am registering as a ...</p>
-
+                <div x-data="{ accountType: null }" class="mt-6">
                     <div class="mt-4 flex justify-around">
                         <div>
-                            <label class="inline-flex items-center">
-                                <input wire:model.lazy="accountType" type="radio" name="accountType" value="traveler">
-                                <span class="ml-2">Traveler</span>
+                            <label
+                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
+                                :class="{'bg-black text-white': accountType == 'traveler', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'traveler'}"
+                            >
+                                <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
+                                <i class="fa-regular fa-backpack"></i>
+                                <span class="ml-2">I am a Traveler</span>
                             </label>
                         </div>
                         <div>
-                            <label class="inline-flex items-center">
-                                <input wire:model.lazy="accountType" type="radio" name="accountType" value="host">
-                                <span class="ml-2">Host</span>
+                            <label
+                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
+                                :class="{'bg-black text-white': accountType == 'host', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'host'}"
+                            >
+                                <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="host" class="hidden">
+                                <i class="fa-regular fa-house-night"></i>
+                                <span class="ml-2">I am a Host</span>
                             </label>
                         </div>
                     </div>
