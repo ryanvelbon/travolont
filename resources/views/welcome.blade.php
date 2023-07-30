@@ -1,8 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
-@section('content')
-<div class="bg-gray-200 py-32">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+@section('body')
+<div class="bg-gray-200">
+    <nav class="bg-transparent">
+        <div class="px-6 sm:px-12 lg:px-16">
+            <div class="flex h-12 items-center justify-between">
+                <a href="{{ route('home') }}" class="text-2xl font-bold">Travolont</a>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                @else
+                    <div>
+                        <a href="{{ route('login') }}" class="px-2">Log in</a>
+                        <a href="{{ route('register') }}" class="px-2">Register</a>
+                    </div>
+                @endauth
+            </div>
+        </div>
+    </nav>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div class="bg-test-1 md:col-span-2">
                 <h2 class="text-7xl font-bold">Explore the World, Create Impact!</h2>
@@ -46,4 +64,5 @@
         @endforeach
     </div>
 </div>
+@include('partials.footer')
 @endsection
