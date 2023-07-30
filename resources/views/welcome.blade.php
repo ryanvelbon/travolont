@@ -7,9 +7,8 @@
             <div class="bg-test-1 md:col-span-2">
                 <h2 class="text-7xl font-bold">Explore the World, Create Impact!</h2>
                 <p class="mt-4 text-lg text-slate-700">Experience authentic local cultures, contribute to communities, and make lasting friendships as you volunteer and travel.</p>
-                <div class="flex space-x-6 mt-4 lg:mt-8">
-                    <a href="{{ route('travelers.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Travelers</a>
-                    <a href="{{ route('hosts.index') }}" class="bg-primary-500 text-white px-6 py-3 text-lg rounded-xl">Search Hosts</a>
+                <div class="mt-8">
+                    <a href="{{ route('register') }}" class="font-bold bg-primary-500 text-white hover:bg-transparent hover:text-primary-500 hover:ring-2 hover:ring-primary-500 px-6 py-4 text-2xl rounded-xl transition-all duration-300 ease-in-out">Join the community</a>
                 </div>
             </div>
             <div>
@@ -20,21 +19,24 @@
 </div>
 <div class="bg-primary-200">
     <h2 class="text-6xl font-bold text-center pt-32">Connect with Travelers & Hosts</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 py-24">
-        @for($i=0; $i<2; $i++)
-        <div class="bg-white text-center py-16 px-8 mx-auto max-w-lg">
-            <h2 class="text-gray-800 text-2xl font-bold">Dolor sit amet elit</h2>
-            <p class="text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <a href="" class="btn btn-primary-outline mt-5">Lorem Dolor</a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 py-24 mx-auto max-w-5xl gap-6">
+        <div class="bg-white text-center py-16 px-8">
+            <h2 class="text-gray-800 text-2xl font-bold">Find a travel buddy</h2>
+            <p class="text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <a href="{{ route('travelers.index') }}" class="btn btn-lg btn-primary mt-5">Search Travelers</a>
         </div>
-        @endfor
+        <div class="bg-white text-center py-16 px-8">
+            <h2 class="text-gray-800 text-2xl font-bold">Find a host</h2>
+            <p class="text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <a href="{{ route('hosts.index') }}" class="btn btn-lg btn-primary mt-5">Search Hosts</a>
+        </div>
     </div>
 </div>
 <div class="bg-white">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8">
         @foreach($featCountries as $country)
         <a href="#">
-            <div class="bg-gray-200 flex flex-col gap-y-2 justify-center items-center h-40 rounded-xl">
+            <div class="bg-gray-200 hover:bg-gray-100 hover:shadow-lg flex flex-col gap-y-2 h-64 justify-center items-center rounded-xl">
                 <img class="w-16 h-12" src="{{ asset('images/flags/countries/svg/'. $country->iso2 . '.svg') }}">
                 <h3 class="text-2xl font-bold">{{ $country->name }}</h3>
                 <span class="text-sm text-gray-600">{{ $country->native }}</span>
