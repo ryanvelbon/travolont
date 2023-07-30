@@ -204,21 +204,31 @@
             <form class="space-y-10 divide-y divide-gray-200">
               <div>
                 <legend class="block text-sm font-medium text-gray-900">Gender</legend>
-                <fieldset>
-                  <div class="space-y-1 pt-6">
-                    <div>
-                      <input wire:model.lazy="sex" value="m" id="male" type="radio">
-                      <label class="ml-2 text-sm text-gray-600" for="male">Male</label>
-                    </div>
-                    <div>
-                      <input wire:model.lazy="sex" value="f" id="female" type="radio">
-                      <label class="ml-2 text-sm text-gray-600" for="female">Female</label>
-                    </div>
-                    <div>
-                      <input wire:model.lazy="sex" value="" id="both" type="radio">
-                      <label class="ml-2 text-sm text-gray-600" for="both">Both</label>
-                    </div>
-                  </div>
+                <fieldset x-data="{ sex: '' }" class="flex gap-2 justify-center items-center mt-4">
+                  <label
+                    class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                    :class="{'bg-gray-800 text-white': sex == 'm', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'm'}"
+                  >
+                    <input x-model="sex" wire:model.lazy="sex" value="m" type="radio" class="hidden">
+                    <i class="fa-regular fa-mars"></i>
+                    <p class="text-xs">Male</p>
+                  </label>
+                  <label
+                    class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                    :class="{'bg-gray-800 text-white': sex == 'f', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'f'}"
+                  >
+                    <input x-model="sex" wire:model.lazy="sex" value="f" type="radio" class="hidden">
+                    <i class="fa-regular fa-venus"></i>
+                    <p class="text-xs">Female</p>
+                  </label>
+                  <label
+                    class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                    :class="{'bg-gray-800 text-white': sex == '', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != ''}"
+                  >
+                    <input x-model="sex" wire:model.lazy="sex" value="" type="radio" class="hidden">
+                    <i class="fa-regular fa-venus-mars"></i>
+                    <p class="text-xs">Both</p>
+                  </label>
                 </fieldset>
               </div>
               <div>
