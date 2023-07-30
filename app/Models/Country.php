@@ -15,4 +15,9 @@ class Country extends Model
     {
         return $this->hasMany(City::class);
     }
+
+    public function hosts()
+    {
+        return $this->hasManyThrough(Host::class, City::class);
+    }
 }

@@ -19,8 +19,8 @@
     </div>
 </div>
 <div class="bg-primary-200">
-    <h2 class="text-4xl font-bold text-center pt-8">Connect with Travelers and Hosts</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 py-8">
+    <h2 class="text-6xl font-bold text-center pt-32">Connect with Travelers & Hosts</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 py-24">
         @for($i=0; $i<2; $i++)
         <div class="bg-white text-center py-16 px-8 mx-auto max-w-lg">
             <h2 class="text-gray-800 text-2xl font-bold">Dolor sit amet elit</h2>
@@ -32,12 +32,13 @@
 </div>
 <div class="bg-white">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8">
-        @foreach($featCities as $city)
+        @foreach($featCountries as $country)
         <a href="#">
-            <div class="bg-gray-200 flex flex-col justify-center items-center h-40 rounded-xl">
-                <h3 class="text-2xl font-bold">{{ $city->name }}</h3>
-                <span class="text-sm text-gray-600">{{ $city->country->name }}</span>
-                <span class="mt-4 text-gray-700">{{ $city->hosts()->count() }} hosts</span>
+            <div class="bg-gray-200 flex flex-col gap-y-2 justify-center items-center h-40 rounded-xl">
+                <img class="w-16 h-12" src="{{ asset('images/flags/countries/svg/'. $country->iso2 . '.svg') }}">
+                <h3 class="text-2xl font-bold">{{ $country->name }}</h3>
+                <span class="text-sm text-gray-600">{{ $country->native }}</span>
+                <span class="text-gray-700">{{ $country->hosts()->count() }} hosts</span>
             </div>
         </a>
         @endforeach
