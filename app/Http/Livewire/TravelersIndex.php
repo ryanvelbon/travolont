@@ -16,6 +16,9 @@ class TravelersIndex extends Component
     public $nationality;
     public $minAge = 18;
     public $maxAge = 80;
+    public $currentCity;
+
+    protected $listeners = ['citySelected' => 'onCitySelected'];
 
     protected $rules = [
         'minAge' => 'numeric|min:18',
@@ -54,6 +57,12 @@ class TravelersIndex extends Component
             $query->where('dob', '>=', $bornAfter);
         }
 
+        if (!empty($this->currentCity)) {
+            $query->whereHas('travelerProfile', function ($query) {
+                $query->where('current_city_id', $this->currentCity);
+            });
+        }
+
         $members = $query->paginate(20);
 
         return view('livewire.travelers-index', [
@@ -61,5 +70,10 @@ class TravelersIndex extends Component
 
             'countries' => Country::all(),
         ]);
+    }
+
+    public function onCitySelected($cityId)
+    {
+        $this->currentCity = $cityId;
     }
 }

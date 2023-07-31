@@ -232,6 +232,9 @@
                 </fieldset>
               </div>
               <div>
+                @livewire('city-combobox')
+              </div>
+              <div>
                 <label for="nationality">Nationality</label>
                 <select wire:model="nationality" id="nationality">
                   <option selected>-- select --</option>

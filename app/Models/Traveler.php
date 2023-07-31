@@ -11,6 +11,7 @@ class Traveler extends Model
 
     protected $fillable = [
         'user_id',
+        'current_city_id',
     ];
 
     public function user()
