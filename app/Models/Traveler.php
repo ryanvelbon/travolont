@@ -18,6 +18,11 @@ class Traveler extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function currentCity()
+    {
+        return $this->belongsTo(City::class, 'current_city_id');
+    }
+
     /**
      * Returns the services the traveler is offering.
      */

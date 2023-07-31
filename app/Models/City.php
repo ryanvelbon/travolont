@@ -21,4 +21,9 @@ class City extends Model
     {
         return $this->hasMany(Host::class);
     }
+
+    public function travelers()
+    {
+        return $this->hasMany(Traveler::class, 'current_city_id');
+    }
 }

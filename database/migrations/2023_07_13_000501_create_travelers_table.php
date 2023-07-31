@@ -11,7 +11,11 @@ return new class extends Migration
         Schema::create('travelers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE')->unique();
+            $table->unsignedMediumInteger('current_city_id')->nullable();
             $table->timestamps();
+
+            // foreign key constraints
+            $table->foreign('current_city_id')->references('id')->on('cities');
         });
     }
 

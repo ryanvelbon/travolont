@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use App\Models\Traveler;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -12,6 +13,9 @@ class TravelerFactory extends Factory
     {
         return [
             'user_id' => User::factory()->create(['account_type' => 'traveler']),
+            'current_city_id' => City::whereNotNull('order')
+                                    ->inRandomOrder()
+                                    ->first(),
         ];
     }
 

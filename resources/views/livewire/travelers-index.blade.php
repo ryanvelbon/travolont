@@ -368,10 +368,19 @@
                         @endif
                       </span>
                     </div>
-                    <div class="text-base leading-7 text-gray-600 flex items-center gap-2">
-                      <i class="fa-light fa-passport fa-xl"></i>
-                      <img class="w-8 h-6 border-2 border-gray-100" src="{{ asset('images/flags/countries/svg/'. $member->countryOfOrigin->iso2 . '.svg') }}">
-                      <span class="truncate">{{ $member->countryOfOrigin->name }}</span>
+                    <!-- <div class="text-base leading-7 text-gray-600 flex items-center gap-2"> -->
+                    <div class="flex justify-between text-gray-600">
+                      <div>
+                        @if($member->travelerProfile->currentCity)
+                          <i class="fa-light fa-location-dot"></i>
+                          <span class="truncate text-sm">{{ $member->travelerProfile->currentCity->name }}</span>
+                          <span class="truncate text-xs">{{ $member->travelerProfile->currentCity->country->name }}</span>
+                        @endif
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <i class="fa-light fa-passport fa-xl"></i>
+                        <img class="w-8 h-6 border-2 border-gray-100" src="{{ asset('images/flags/countries/svg/'. $member->countryOfOrigin->iso2 . '.svg') }}">
+                      </div>
                     </div>
                   </div>
                 </li>

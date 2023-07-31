@@ -20,4 +20,9 @@ class Country extends Model
     {
         return $this->hasManyThrough(Host::class, City::class);
     }
+
+    public function travelers()
+    {
+        return $this->hasManyThrough(Traveler::class, City::class, 'country_id', 'current_city_id');
+    }
 }
