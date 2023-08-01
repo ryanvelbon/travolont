@@ -5,16 +5,16 @@
 >
     @foreach($hostTypes as $hostType)
         <label
-            class="py-3 flex justify-center items-center bg-gray-200 cursor-pointer"
+            class="py-3 flex justify-center items-center cursor-pointer"
             :class="{
-                'bg-primary-300': typeId == '{{ $hostType->id }}',
-                'hover:bg-gray-300': typeId != '{{ $hostType->id }}'
+                'bg-black text-white': typeId == '{{ $hostType->id }}',
+                'bg-gray-200 hover:bg-gray-300': typeId != '{{ $hostType->id }}'
             }"
             @click="typeId = '{{ $hostType->id }}'"
         >
             <input type="radio" value="{{ $hostType->id }}" wire:model="host.type_id" class="hidden">
             <i class="fa-solid fa-{{ $hostType->icon }} mr-4"></i>
-            <span>{{ $hostType->title }}</span>
+            <span class="font-medium">{{ $hostType->title }}</span>
         </label>
     @endforeach
 

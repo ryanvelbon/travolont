@@ -38,22 +38,19 @@ input[type="radio"] {
     @apply h-4 w-4 border-gray-300 text-primary-600 focus:ring-primary-600;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"] {
+.my-input {
     @apply px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-primary-600 focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5;
 }
 
-label {
+.my-label {
     @apply text-sm font-medium leading-6 text-gray-900;
 }
 
-select {
+.my-select {
     @apply rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-primary-600 sm:text-sm sm:leading-6;
 }
 
-textarea {
+.my-textarea {
     @apply rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6;
 }
 

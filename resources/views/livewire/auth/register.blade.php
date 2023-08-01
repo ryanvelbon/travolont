@@ -82,7 +82,7 @@
                             >
                                 <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
                                 <i class="fa-regular fa-backpack"></i>
-                                <span class="ml-2">I am a Traveler</span>
+                                <span class="ml-2 text-sm font-medium">I am a Traveler</span>
                             </label>
                         </div>
                         <div>
@@ -92,7 +92,7 @@
                             >
                                 <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="host" class="hidden">
                                 <i class="fa-regular fa-house-night"></i>
-                                <span class="ml-2">I am a Host</span>
+                                <span class="ml-2 text-sm font-medium">I am a Host</span>
                             </label>
                         </div>
                     </div>

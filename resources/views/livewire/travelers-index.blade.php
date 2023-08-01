@@ -175,10 +175,7 @@
     </div>
 
     <main class="bg-test-2 lg:px-8">
-      <div class="border-b border-gray-200 pb-10">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900">Find fellow Travelers</h1>
-        <p class="mt-4 text-base text-gray-500">Checkout out the latest release of Basic Tees, new and improved with four openings!</p>
-      </div>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 pt-6">Find fellow Travelers</h1>
 
       <div class="block lg:hidden bg-gray-300 p-8">
         Your Advert Here!
@@ -236,7 +233,7 @@
               </div>
               <div>
                 <label for="nationality">Nationality</label>
-                <select wire:model="nationality" id="nationality">
+                <select wire:model="nationality" id="nationality" class="w-full">
                   <option selected>-- select --</option>
                   @foreach($countries as $country)
                     <option value="{{$country->id}}">{{ $country->name }}</option>
