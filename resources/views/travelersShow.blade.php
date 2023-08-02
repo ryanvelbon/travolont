@@ -7,7 +7,7 @@
     <section class="sm:w-[300px] shrink-0 sm:rounded-2xl shadow-xl px-8 py-10 bg-white">
       <div class="text-center">
         <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-        <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Leonard Krasner</h3>
+        <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{{ $member->fullName }}</h3>
         <p class="text-sm leading-5 text-gray-600 italic">"Jet lag is for amateurs, let's explore!"</p>
         <ul role="list" class="mt-6 flex justify-center gap-x-6">
           <li>
@@ -32,7 +32,12 @@
               <i class="fa-solid w-4 fa-venus-mars"></i>
               <span class="ml-2">Age & Sex</span>
             </div>
-            <span class="font-bold truncate">23, Male</span>
+            <span class="font-bold truncate">{{ $member->age }},
+              @if($member->sex === 'm')
+                Male
+              @elseif($member->sex === 'f')
+                Female
+              @endif</span>
           </li>
 
           <li class="flex justify-between">
@@ -40,7 +45,7 @@
               <i class="fa-solid w-4 fa-location-dot"></i>
               <span class="ml-2">From</span>
             </div>
-            <span class="font-bold truncate">Malaysia</span>
+            <span class="font-bold truncate">{{ $member->countryOfOrigin->name }}</span>
           </li>
 
           <li class="flex justify-between">
@@ -48,7 +53,7 @@
               <i class="fa-solid w-4 fa-user"></i>
               <span class="ml-2">Member since</span>
             </div>
-            <span class="font-bold">Dec 2020</span>
+            <span class="font-bold">{{ $member->created_at->format('M Y') }}</span>
           </li>
 
           <li class="flex justify-between">
@@ -77,7 +82,7 @@
       <div x-data="{ tab: 'friends' }" class="bg-white p-4 shadow-md sm:rounded-2xl">
         <header class="sm:flex sm:justify-between space-y-4">
           <div>
-            <h2 class="text-2xl font-bold text-gray-900">Leonard Krasner</h2>
+            <h2 class="text-2xl font-bold text-gray-900">{{ $member->fullName }}</h2>
             <ul class="text-xs text-gray-400 mt-2">
               <li>43% response rate</li>
               <li>Last login about 9 hours ago</li>
