@@ -40,7 +40,7 @@ class HostsIndex extends Component
 
         $hosts = $query->paginate(10);
 
-        return view('livewire.hosts-index', [
+        return view('livewire.profile.host.index', [
             'hosts' => $hosts,
             'hostTypes' => HostType::all(),
         ]);

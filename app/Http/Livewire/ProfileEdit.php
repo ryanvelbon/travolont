@@ -47,7 +47,7 @@ class ProfileEdit extends Component
 
     public function render()
     {
-        return view('livewire.profile-edit')->extends('layouts.auth', ['showNavbar' => true]);
+        return view('livewire.profile.edit')->extends('layouts.auth', ['showNavbar' => true]);
     }
 
     public function save()

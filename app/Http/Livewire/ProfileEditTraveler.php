@@ -16,7 +16,7 @@ class ProfileEditTraveler extends Component
 
     public function render()
     {
-        return view('livewire.profile-edit-traveler')->extends('layouts.auth', ['showNavbar' => true]);
+        return view('livewire.profile.traveler.edit')->extends('layouts.auth', ['showNavbar' => true]);
     }
 
     public function updated($propertyName)

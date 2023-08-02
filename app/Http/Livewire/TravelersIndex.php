@@ -65,7 +65,7 @@ class TravelersIndex extends Component
 
         $members = $query->paginate(20);
 
-        return view('livewire.travelers-index', [
+        return view('livewire.profile.traveler.index', [
             'members' => $members,
 
             'countries' => Country::all(),
