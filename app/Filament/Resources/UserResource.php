@@ -61,6 +61,8 @@ class UserResource extends Resource
                     ->label('Nationality'),
                 Tables\Columns\TextColumn::make('account_type')
                     ->size('sm'),
+                Tables\Columns\ImageColumn::make('avatar')
+                    ->disk('avatars'),
                 Tables\Columns\TextColumn::make('username')
                     ->size('sm'),
                 Tables\Columns\TextColumn::make('email')
