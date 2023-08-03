@@ -352,7 +352,7 @@
             @forelse($members as $member)
               <a href="{{ route('travelers.show', $member->username) }}">
                 <li class="shadow-lg hover:shadow-2xl">
-                  <img class="aspect-[3/2] w-full object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                  <img class="aspect-[3/2] w-full object-cover" src="{{ $member->avatarUrl() }}" alt="">
                   <div class="p-3">
                     <div class="flex justify-between items-center">
                       <span class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $member->full_name }}</span>

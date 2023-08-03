@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Country;
 use Carbon\Carbon;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ProfileEdit extends Component
 {
+    use WithFileUploads;
+
     public $countries;
     public $user;
 
@@ -15,12 +18,16 @@ class ProfileEdit extends Component
     public $dob_month;
     public $dob_year;
 
+    public $avatar;
+
     protected $rules = [
         'user.first_name'     => 'required|min:2',
         'user.last_name'      => 'required|min:2',
         'user.sex'            => 'required|in:m,f',
         'user.nationality_id' => 'required|exists:countries,id',
         'user.dob'            => 'required|date',
+
+        'avatar' => 'image|max:1000', // 1 MB
 
         'dob_day'   => ['required', 'integer', 'between:1,31'],
         'dob_month' => ['required', 'integer', 'between:1,12'],
@@ -53,6 +60,10 @@ class ProfileEdit extends Component
     public function save()
     {
         $this->validate();
+
+        $filename = $this->avatar->store('/', 'avatars');
+
+        $this->user->avatar = $filename;
 
         $this->user->save();
 

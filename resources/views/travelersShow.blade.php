@@ -6,7 +6,7 @@
 
     <section class="sm:w-[300px] shrink-0 sm:rounded-2xl shadow-xl px-8 py-10 bg-white">
       <div class="text-center">
-        <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+        <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src="{{ $member->avatarUrl() }}" alt="">
         <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{{ $member->fullName }}</h3>
         <p class="text-sm leading-5 text-gray-600 italic">"Jet lag is for amateurs, let's explore!"</p>
         <ul role="list" class="mt-6 flex justify-center gap-x-6">

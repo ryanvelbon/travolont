@@ -11,7 +11,22 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-6">
+    <div>
+        <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+        <div class="mt-2 flex items-center gap-x-3">
+            <span class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                <img src="{{ auth()->user()->avatarUrl() }}" alt="Profile Photo">
+            </span>
+            <span class="ml-5 rounded-md shadow-sm">
+                <input type="file" wire:model="avatar">
+            </span>
+        </div>
+        @error('avatar')
+            <div class="input-error-msg">{{ $message }}</div>
+        @endError
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-6 mt-8">
         <div>
             <label for="firstName">First Name</label>
 

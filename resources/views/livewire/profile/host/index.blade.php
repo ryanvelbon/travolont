@@ -163,7 +163,7 @@
                     <!-- Host info -->
                     <div class="order-3 sm:order-2 md:order-3 lg:order-2 xl:order-3 bg-test-3 p-2 text-center flex">
                       <div class="bg-test-4">
-                        <img class="rounded-full" src="https://images.unsplash.com/photo-1509506489701-dfe23b067808?w=500" alt="User profile picture">
+                        <img class="rounded-full" src="{{ $host->user->avatarUrl() }}" alt="User profile picture">
                         <h3 class="text-md font-semibold mt-2">{{ $host->user->first_name }}</h3>
                         <div>
                           <i class="fa-solid fa-star fa-xs"></i>
