@@ -1,12 +1,31 @@
-<header x-data="{ open: false }" class="bg-primary-800 shadow">
+<header x-data="{ open: false, showSearch: false }" class="bg-primary-800 shadow">
   <div class="px-2 sm:px-4 lg:px-16">
-    <div class="relative flex h-20 justify-between">
+    <div class="relative flex h-16 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
         <div class="flex flex-shrink-0 items-center">
           <a href="{{ route('home') }}">
             <span class="text-2xl font-bold text-white">travolont</span>
           </a>
         </div>
+      </div>
+      <div class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
+        <button
+          x-show="!showSearch"
+          @click="showSearch = true"
+          type="button"
+          class="w-full sm:max-w-xs flex justify-start items-center block rounded-md border-0 bg-black/20 py-1.5 pl-10 pr-3 text-gray-100 sm:text-sm sm:leading-6"
+        >
+          <i class="fa-light fa-magnifying-glass fa-lg"></i>
+          <span class="ml-3">Search</span>
+        </button>
+        <button
+          x-show="showSearch"
+          @click="showSearch = false"
+          type="button"
+          class="text-gray-100 bg-white/10 w-12 h-12 p-2 rounded-full"
+        >
+          <i class="fa-light fa-magnifying-glass fa-lg"></i>
+        </button>
       </div>
       <div class="relative z-10 flex items-center lg:hidden">
         <!-- Mobile menu button -->
@@ -76,7 +95,7 @@
         @endauth
       </div>
     </div>
-    <div class="flex justify-center py-6">
+    <div x-show="showSearch" class="flex justify-center py-6">
       <form class="bg-white/20 rounded-md p-2 sm:flex">
         <select class="text-lg w-full sm:rounded-l-lg">
           <option>Find Hosts</option>
