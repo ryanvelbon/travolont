@@ -33,6 +33,8 @@ class TravelersIndex extends Component
         if ($this->maxAge <= $this->minAge) {
             $this->addError('maxAge', 'The max age must be greater than min age.');
         }
+
+        $this->resetPage();
     }
 
     public function render()
