@@ -5,7 +5,10 @@
     <nav class="bg-transparent">
         <div class="px-6 sm:px-12 lg:px-16">
             <div class="flex h-12 items-center justify-between">
-                <a href="{{ route('home') }}" class="text-2xl font-bold text-primary-500">Travolont</a>
+                <div class="flex gap-4">
+                    <x-logo class="w-auto h-8 mx-auto text-primary-600" />
+                    <a href="{{ route('home') }}" class="text-2xl font-bold text-primary-500">Travolont</a>
+                </div>
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

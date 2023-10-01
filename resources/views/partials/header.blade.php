@@ -3,7 +3,8 @@
     <div class="relative flex h-16 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
         <div class="flex flex-shrink-0 items-center">
-          <a href="{{ route('home') }}">
+          <a href="{{ route('home') }}" class="flex gap-4">
+            <x-logo class="w-auto h-8 mx-auto text-primary-100" />
             <span class="text-2xl font-bold text-white">travolont</span>
           </a>
         </div>
