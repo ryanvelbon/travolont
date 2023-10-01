@@ -27,10 +27,10 @@
       <div class="mt-12">
         <ul class="text-sm text-gray-600 grid grid-cols-1 gap-y-2">
 
-          <li class="flex justify-between">
+          <li class="flex justify-between sm:justify-start sm:gap-4">
             <div class="flex items-center">
               <i class="fa-solid w-4 fa-venus-mars"></i>
-              <span class="ml-2">Age & Sex</span>
+              <span class="ml-2 block sm:hidden">Age & Sex</span>
             </div>
             <span class="font-bold truncate">{{ $member->age }},
               @if($member->sex === 'm')
@@ -40,26 +40,26 @@
               @endif</span>
           </li>
 
-          <li class="flex justify-between">
+          <li class="flex justify-between sm:justify-start sm:gap-4">
             <div class="flex items-center">
               <i class="fa-solid w-4 fa-location-dot"></i>
-              <span class="ml-2">From</span>
+              <span class="ml-2 block sm:hidden">From</span>
             </div>
             <span class="font-bold truncate">{{ $member->countryOfOrigin->name }}</span>
           </li>
 
-          <li class="flex justify-between">
+          <li class="flex justify-between sm:justify-start sm:gap-4">
             <div class="flex items-center">
               <i class="fa-solid w-4 fa-user"></i>
-              <span class="ml-2">Member since</span>
+              <span class="ml-2 block sm:hidden">Member since</span>
             </div>
             <span class="font-bold">{{ $member->created_at->format('M Y') }}</span>
           </li>
 
-          <li class="flex justify-between">
+          <li class="flex justify-between sm:justify-start sm:gap-4">
             <div class="flex items-center">
               <i class="fa-solid w-4 fa-briefcase"></i>
-              <span class="ml-2">Occupation</span>
+              <span class="ml-2 block sm:hidden">Occupation</span>
             </div>
             <span class="font-bold truncate">Mechanical Engineer</span>
           </li>
