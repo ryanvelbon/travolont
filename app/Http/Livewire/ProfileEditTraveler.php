@@ -7,63 +7,42 @@ use App\Models\Traveler;
 
 class ProfileEditTraveler extends Component
 {
-    public $currentStep = 1;
+    public $traveler;
 
-    // Form Fields
-    public $foo;
-    public $goo;
-    public $zoo;
+    public $step = 1;
+
+    protected $rules = [
+    ];
+
+    public function mount()
+    {
+        $this->traveler = auth()->user()->travelerProfile;
+    }
 
     public function render()
     {
-        return view('livewire.profile.traveler.edit')->extends('layouts.auth', ['showNavbar' => true]);
+        return view('livewire.profile.traveler.edit', [
+            // 
+        ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
-    public function updated($propertyName)
+    public function previousStep()
     {
-        $this->validateOnly($propertyName, $this->stepValidationRules());
+        $this->step--;
     }
 
-    public function nextStep()
+    public function step1()
     {
-        $this->validate($this->stepValidationRules());
-        $this->currentStep++;
+        // $this->validateOnly('traveler.foo');
+        $this->traveler->save();
+        $this->step = 2;
     }
 
-    public function submitForm()
+    public function step2()
     {
-        if ($this->currentStep === 3) {
-            $this->save();
-        } else {
-            $this->nextStep();
-        }
+        // $this->validateOnly('traveler.goo');
+        $this->traveler->save();
+        $this->step = 3;
     }
 
-    public function save()
-    {
-        $this->validate($this->stepValidationRules());
-
-        // Add your save logic here, for example
-        Traveler::create([
-            'foo' => $this->foo,
-            'goo' => $this->goo,
-            'zoo' => $this->zoo,
-        ]);
-
-        // Reset fields and step for next use
-        $this->reset('foo', 'goo', 'zoo', 'currentStep');
-
-        session()->flash('message', 'Profile successfully updated.');
-    }
-
-    protected function stepValidationRules()
-    {
-        $rules = [
-            1 => ['foo' => 'required|string|max:255'],
-            2 => ['goo' => 'required|string|max:255'],
-            3 => ['zoo' => 'required|string|max:255'],
-        ];
-
-        return $rules[$this->currentStep];
-    }
 }

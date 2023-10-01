@@ -1,46 +1,26 @@
-<div class="mx-auto w-full md:w-[600px] px-4 py-4 sm:px-6 lg:px-8 bg-gray-100">
-    @if (session()->has('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
+<div class="sm:mx-auto sm:w-full sm:max-w-xl shadow-2xl p-5">
+    <div class="bg-test-1 min-h-[350]">
+    @if ($step === 1)
+        @include('livewire.profile.traveler.step1')
+    @elseif ($step === 2)
+        @include('livewire.profile.traveler.step2')
+    @elseif ($step === 3)
+        @include('livewire.profile.traveler.step3')
     @endif
+    </div>
 
-    <form
-        wire:submit.prevent="submitForm()"
-        class="flex flex-col gap-y-8"
-    >
-
-        @if ($currentStep === 1)
-            <h1>Step 1</h1>
+    <div class="flex justify-between">
+        @if ($step > 1)
+            <button wire:click="previousStep" class="btn btn-primary-outline">Previous</button>
+        @else
             <div>
-                <label class="block">Foo</label>
-                <textarea rows="6" class="block w-full" wire:model="foo"></textarea>
-                @error('foo') <p class="input-error-msg">{{ $message }}</p> @enderror
-            </div>
-
-        @elseif ($currentStep === 2)
-            <h1>Step 2</h1>
-            <div>
-                <label class="block">Goo</label>
-                <textarea rows="6" class="block w-full" wire:model="goo"></textarea>
-                @error('goo') <p class="input-error-msg">{{ $message }}</p> @enderror
-            </div>
-
-        @elseif ($currentStep === 3)
-            <h1>Step 3</h1>
-            <div>
-                <label class="block">Zoo</label>
-                <textarea rows="6" class="block w-full" wire:model="zoo"></textarea>
-                @error('zoo') <p class="input-error-msg">{{ $message }}</p> @enderror
+                <!-- Empty div for justify-between to work properly. -->
             </div>
         @endif
-
-        <div>
-            @if ($currentStep === 3)
-                <button class="btn btn-primary" type="submit">Save</button>
-            @else
-                <button class="btn btn-primary-outline" type="submit">Next</button>
-            @endif
-        </div>
-    </form>
+        @if ($step === 3)
+            <a class="btn btn-primary" href="{{ route('travelers.show', $traveler->user->username ) }}">Preview Profile</a>
+        @else
+            <button wire:click="step{{ $step }}" class="btn btn-primary">Next</button>
+        @endif
+    </div>
 </div>
