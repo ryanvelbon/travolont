@@ -83,10 +83,6 @@
                 </h1>
             </div>
 
-            <div class="py-3">
-                {{ $hosts->links() }}
-            </div>
-
             <div class="block lg:hidden bg-gray-300 p-8">
                 Your Advert Here!
             </div>
@@ -133,55 +129,64 @@
 
                 <!-- Results -->
                 <div class="bg-test-1 lg:col-span-2 xl:col-span-3">
-                    <ul role="list">
+                    <ul role="list" class="flex flex-col gap-4">
                         @forelse($hosts as $host)
-                            <a href="#">
-                                <li class="bg-test-1 bg-white p-4 mt-2 shadow-md">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-
-                                        <!-- Experience featured image -->
-                                        <div class="order-1 bg-test-3">
-                                            <img class="rounded-lg" src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500">
-                                        </div>
-
-                                        <!-- Experience info -->
-                                        <div class="order-2 sm:order-3 md:order-2 lg:order-3 xl:order-2 sm:col-span-2 bg-test-2">
-                                            <div class="flex text-sm text-gray-700">
-                                                @if(isset($host->type))
-                                                    <div>
-                                                        <i class="fa-solid fa-{{$host->type->icon}}"></i>
-                                                        <span>{{ $host->type->title }}</span>
-                                                    </div>
-                                                @endif
+                            <a href="">
+                                <li class="flex flex-col md:flex-row shadow-md border border-gray-100 hover:border-gray-300 hover:shadow-lg">
+                                    <div class="w-full md:w-72">
+                                        <img src="https://placehold.co/800x800">
+                                    </div>
+                                    <div class="flex-1 flex flex-col gap-4 justify-between px-4 py-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
                                                 @if(isset($host->city))
-                                                    <span class="ml-4">
-                                                        <i class="fa-regular fa-location-dot"></i>
-                                                        <span>{{ $host->city->name }}</span>
+                                                    <img class="h-6" src="{{ asset('images/flags/countries/svg/' . $host->city->country->iso2 . '.svg') }}">
+                                                    <span class="text-gray-600 text-sm">{{ $host->city->name }}, <span class="font-mono">{{ $host->city->country->name }}</span></span>
+                                                @endif
+                                            </div>
+                                            <div>
+                                                <span class="mr-2"><i class="fa-solid fa-star mr-1"></i>5.0</span>
+                                                @if(isset($host->type))
+                                                    <span class="bg-black text-sm text-white px-3 py-2">
+                                                        <i class="fa-solid fa-{{$host->type->icon}}"></i>
+                                                        <span class="ml-3">{{ $host->type->title }}</span>
                                                     </span>
                                                 @endif
                                             </div>
-                                            <h2 class="text-lg font-bold mt-2">{{ $host->title }}</h2>
-                                            <p class="text-gray-600 text-sm">{{ $host->description }}</p>
                                         </div>
-
-                                        <!-- Host info -->
-                                        <div class="order-3 sm:order-2 md:order-3 lg:order-2 xl:order-3 bg-test-3 p-2 text-center flex">
-                                            <div class="bg-test-4">
-                                                <img class="rounded-full" src="{{ $host->user->avatarUrl() }}" alt="User profile picture">
-                                                <h3 class="text-md font-semibold mt-2">{{ $host->user->first_name }}</h3>
-                                                <div>
-                                                    <i class="fa-solid fa-star fa-xs"></i>
-                                                    <i class="fa-solid fa-star fa-xs"></i>
-                                                    <i class="fa-solid fa-star fa-xs"></i>
-                                                    <i class="fa-solid fa-star-half-stroke fa-xs"></i>
-                                                    <i class="fa-regular fa-star fa-xs"></i>
-                                                </div>
+                                        <div class="flex gap-4">
+                                            <div class="flex-1">
+                                                <h2 class="text-lg font-bold text-gray-800 mb-2">Learn Organic Farming in the Heart of Bali</h2>
+                                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                             </div>
-                                            <div class="sm:hidden bg-test-2 flex items-center p-2">
-                                                <p class="text-xs text-gray-600 italic">{{ $host->user->bio }}</p>
+                                            <div>
+                                                <img
+                                                    class="rounded-full h-24"
+                                                    src="{{ asset('avatars/' . $host->user->avatar) }}"
+                                                    onerror="this.onerror=null;this.src='https://placehold.co/200x200/png';"
+                                                >
                                             </div>
                                         </div>
-
+                                        <div>
+                                            <ul class="emoji-info-list grid grid-cols-3 gap-4 text-gray-700 text-sm">
+                                                <li>
+                                                    <dt>🕓</dt>
+                                                    <dd>10 hours<sub>per week</sub></dd>
+                                                </li>
+                                                <li>
+                                                    <dt>💰</dt>
+                                                    <dd>VND 50.000<sub>per hour</sub></dd>
+                                                </li>
+                                                <li>
+                                                    <dt>🍽</dt>
+                                                    <dd>3 meals<sub>per day</sub></dd>
+                                                </li>
+                                                <li>
+                                                    <dt>🛏</dt>
+                                                    <dd>private room</dd>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                             </a>
@@ -189,6 +194,10 @@
                             <div class="bg-gray-200 text-gray-700">No results.</div>
                         @endforelse
                     </ul>
+
+                    <div class="py-3">
+                        {{ $hosts->links() }}
+                    </div>
                 </div>
 
                 <aside class="bg-gray-300">

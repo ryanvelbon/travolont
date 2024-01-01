@@ -125,3 +125,17 @@ input[type="radio"] {
 [x-cloak] {
     display: none;
 }
+
+.emoji-info-list {
+    li {
+        @apply flex items-center gap-2;
+    };
+
+    dt {
+        @apply text-3xl;
+    }
+
+    dd {
+        @apply flex flex-col;
+    }
+}
