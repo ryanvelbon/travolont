@@ -12,7 +12,10 @@ class ProfileEditTraveler extends Component
     public $step = 1;
 
     protected $rules = [
+        'traveler.current_city_id' => 'required|exists:cities,id',
     ];
+
+    protected $listeners = ['citySelected' => 'onCitySelected'];
 
     public function mount()
     {
@@ -24,6 +27,11 @@ class ProfileEditTraveler extends Component
         return view('livewire.profile.traveler.edit', [
             // 
         ])->extends('layouts.auth', ['showNavbar' => true]);
+    }
+
+    public function onCitySelected($cityId)
+    {
+        $this->traveler->current_city_id = $cityId;
     }
 
     public function previousStep()
@@ -40,7 +48,7 @@ class ProfileEditTraveler extends Component
 
     public function step2()
     {
-        // $this->validateOnly('traveler.goo');
+        $this->validateOnly('traveler.current_city_id');
         $this->traveler->save();
         $this->step = 3;
     }
