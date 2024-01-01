@@ -147,14 +147,18 @@
                     <!-- Experience info -->
                     <div class="order-2 sm:order-3 md:order-2 lg:order-3 xl:order-2 sm:col-span-2 bg-test-2">
                       <div class="flex text-sm text-gray-700">
-                        <div>
-                          <i class="fa-solid fa-{{$host->type->icon}}"></i>
-                          <span>{{ $host->type->title }}</span>
-                        </div>
-                        <span class="ml-4">
-                          <i class="fa-regular fa-location-dot"></i>
-                          <span>{{ $host->city->name }}</span>
-                        </span>
+                        @if(isset($host->type))
+                          <div>
+                            <i class="fa-solid fa-{{$host->type->icon}}"></i>
+                            <span>{{ $host->type->title }}</span>
+                          </div>
+                        @endif
+                        @if(isset($host->city))
+                          <span class="ml-4">
+                            <i class="fa-regular fa-location-dot"></i>
+                            <span>{{ $host->city->name }}</span>
+                          </span>
+                        @endif
                       </div>
                       <h2 class="text-lg font-bold mt-2">{{ $host->title }}</h2>
                       <p class="text-gray-600 text-sm">{{ $host->description }}</p>
