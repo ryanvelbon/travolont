@@ -10,8 +10,10 @@ class PageController extends Controller
     public function home()
     {
         $featCountries = Country::whereNotNull('order')
-                        ->orderBy('order')
-                        ->get();
+            ->withCount('hosts')
+            ->withCount('travelers')
+            ->orderBy('order')
+            ->get();
 
         return view('welcome', [
             'featCountries' => $featCountries

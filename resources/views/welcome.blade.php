@@ -72,8 +72,8 @@
                 <img class="w-16 h-12" src="{{ asset('images/flags/countries/svg/'. $country->iso2 . '.svg') }}">
                 <h3 class="text-2xl font-bold">{{ $country->name }}</h3>
                 <span class="text-sm text-gray-600">{{ $country->native }}</span>
-                <span class="text-gray-700">{{ $country->hosts()->count() }} hosts</span>
-                <span class="text-gray-700">{{ $country->travelers()->count() }} travelers</span>
+                <span class="text-gray-700">{{ $country->hosts_count }} hosts</span>
+                <span class="text-gray-700">{{ $country->travelers_count }} travelers</span>
             </div>
         </a>
         @endforeach
