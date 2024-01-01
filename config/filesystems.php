@@ -36,10 +36,10 @@ return [
             'throw' => false,
         ],
 
-        'avatars' => [
+        'images' => [
             'driver' => 'local',
-            'root' => storage_path('app/avatars'),
-            'url' => env('APP_URL').'/avatars',
+            'root' => storage_path('app/images'),
+            'url' => env('APP_URL').'/images',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -78,7 +78,7 @@ return [
     */
 
     'links' => [
-        public_path('avatars') => storage_path('app/avatars'),
+        public_path('images') => storage_path('app/images'),
     ],
 
 ];

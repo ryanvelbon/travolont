@@ -80,7 +80,7 @@ class User extends Authenticatable implements FilamentUser, HasName
     public function avatarUrl()
     {
         return $this->avatar
-            ? Storage::disk('avatars')->url($this->avatar)
-            : Storage::disk('avatars')->url('default.jpg');
+            ? Storage::disk('images')->url($this->avatar)
+            : Storage::disk('images')->url('default.jpg');
     }
 }

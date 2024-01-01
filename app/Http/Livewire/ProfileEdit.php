@@ -61,7 +61,7 @@ class ProfileEdit extends Component
     {
         $this->validate();
 
-        $filename = $this->avatar->store('/', 'avatars');
+        $filename = $this->avatar->store('/', 'images');
 
         $this->user->avatar = $filename;
 
