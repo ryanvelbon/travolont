@@ -16,6 +16,8 @@ class DemoSeeder extends Seeder
         foreach ($hosts as $host) {
             $host->user->avatar = 'host' . $count . '.png';
             $host->user->save();
+            $host->feat_img = 'experience' . $count . '.png';
+            $host->save();
             $count++;
         }
 

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('biz_phone')->nullable();
             $table->string('biz_website')->nullable();
 
+            $table->text('feat_img')->nullable();
             $table->string('title')->nullable();
             $table->unsignedBigInteger('type_id')->nullable();
             $table->text('description')->nullable();
