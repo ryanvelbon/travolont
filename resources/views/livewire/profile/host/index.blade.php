@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <main class="bg-test-2 px-4 lg:px-8">
+        <main class="px-4 lg:px-8">
             <div class="border-b border-gray-200 pb-10">
                 <h1 class="mt-4 text-base text-gray-500">
                     Volunteer Opportunities
@@ -83,12 +83,8 @@
                 </h1>
             </div>
 
-            <div class="block lg:hidden bg-gray-300 p-8">
-                Your Advert Here!
-            </div>
-
-            <div class="bg-test-3 pt-6 lg:grid lg:grid-cols-4 lg:gap-x-8 xl:grid-cols-5">
-                <aside>
+            <div class="lg:flex lg:gap-4">
+                <aside class="lg:w-96">
                     <h2 class="sr-only">Filters</h2>
 
                     <!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
@@ -128,19 +124,22 @@
                 </aside>
 
                 <!-- Results -->
-                <div class="bg-test-1 lg:col-span-2 xl:col-span-3">
+                <div>
                     <ul role="list" class="flex flex-col gap-4">
                         @forelse($hosts as $host)
-                            <a href="">
+                            <a href="#">
                                 <li class="flex flex-col md:flex-row shadow-md border border-gray-100 hover:border-gray-300 hover:shadow-lg">
                                     <div class="w-full md:w-72">
-                                        <img src="https://placehold.co/800x800">
+                                        <img
+                                            src="{{ asset('images/' . $host->feat_img) }}"
+                                            onerror="this.onerror=null;this.src='https://placehold.co/800x800/png';"
+                                        >
                                     </div>
                                     <div class="flex-1 flex flex-col gap-4 justify-between px-4 py-4">
                                         <div class="flex justify-between">
                                             <div class="flex gap-2">
                                                 @if(isset($host->city))
-                                                    <img class="h-6" src="{{ asset('images/flags/countries/svg/' . $host->city->country->iso2 . '.svg') }}">
+                                                    <img class="h-6" src="{{ asset('assets/flags/countries/svg/' . $host->city->country->iso2 . '.svg') }}">
                                                     <span class="text-gray-600 text-sm">{{ $host->city->name }}, <span class="font-mono">{{ $host->city->country->name }}</span></span>
                                                 @endif
                                             </div>
@@ -162,8 +161,8 @@
                                             <div>
                                                 <img
                                                     class="rounded-full h-24"
-                                                    src="{{ asset('avatars/' . $host->user->avatar) }}"
-                                                    onerror="this.onerror=null;this.src='https://placehold.co/200x200/png';"
+                                                    src="{{ asset('images/' . $host->user->avatar) }}"
+                                                    
                                                 >
                                             </div>
                                         </div>
@@ -199,10 +198,6 @@
                         {{ $hosts->links() }}
                     </div>
                 </div>
-
-                <aside class="bg-gray-300">
-                    Your Advert Here!
-                </aside>
             </div>
         </main>
     </div>
