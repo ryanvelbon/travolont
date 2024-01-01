@@ -161,7 +161,7 @@
                                             <div>
                                                 <img
                                                     class="rounded-full h-24"
-                                                    src="{{ asset('images/' . $host->user->avatar) }}"
+                                                    src="{{ $host->user->avatarUrl() }}"
                                                     
                                                 >
                                             </div>
