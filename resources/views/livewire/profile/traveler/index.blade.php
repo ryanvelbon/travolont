@@ -290,7 +290,7 @@
                       </div>
                       <div class="flex items-center gap-1">
                         <i class="fa-light fa-passport fa-xl"></i>
-                        <img class="w-8 h-6 border-2 border-gray-100" src="{{ asset('images/flags/countries/svg/'. $member->countryOfOrigin->iso2 . '.svg') }}">
+                        <img class="w-8 h-6 border-2 border-gray-100" src="{{ asset('assets/flags/countries/svg/'. $member->countryOfOrigin->iso2 . '.svg') }}">
                       </div>
                     </div>
                   </div>
