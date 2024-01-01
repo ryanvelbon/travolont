@@ -28,3 +28,7 @@ If you run `SHOW TABLES` you should now see a total of 3 tables: `cities`, `coun
 Now run your migrations.
 
     $ php artisan migrate
+
+Create sample data (optional)
+
+    $ php artisan db:demo
