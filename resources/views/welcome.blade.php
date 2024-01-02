@@ -74,7 +74,7 @@
         @foreach($featCountries as $country)
         <a href="#">
             <div class="bg-gray-200 hover:bg-gray-100 hover:shadow-lg flex flex-col gap-y-2 h-64 justify-center items-center rounded-xl">
-                <img class="w-16 h-12" src="{{ asset('images/flags/countries/svg/'. $country->iso2 . '.svg') }}">
+                <img class="w-16 h-12" src="{{ asset('assets/flags/countries/svg/'. $country->iso2 . '.svg') }}">
                 <h3 class="text-2xl font-bold">{{ $country->name }}</h3>
                 <span class="text-sm text-gray-600">{{ $country->native }}</span>
                 <span class="text-gray-700">{{ $country->hosts_count }} hosts</span>
