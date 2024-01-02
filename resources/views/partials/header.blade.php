@@ -128,10 +128,10 @@
             </div>
           </div>
         @else
-          <div class="flex flex-1 items-center justify-end gap-x-6">
-            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-white">Log in</a>
+          <div class="flex flex-1 items-center justify-end gap-x-3">
+            <a href="{{ route('login') }}" class="btn btn-secondary">Log in</a>
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Register</a>
+              <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
             @endif
           </div>
         @endauth
