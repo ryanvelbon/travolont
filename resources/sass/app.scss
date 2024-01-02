@@ -147,3 +147,19 @@ input[type="radio"] {
         @apply flex flex-col;
     }
 }
+
+#testimonial-container {
+    position: relative;
+
+    .testimonial {
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        top: 0;
+        left: 0;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+}

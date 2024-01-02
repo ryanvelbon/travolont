@@ -66,6 +66,13 @@
         </div>
     </div>
 </div>
+<section class="bg-secondary-300 py-16">
+    <div id="testimonial-container">
+        <div class="testimonial">I had an amazing experience! The app helped me explore the world affordably.</div>
+        <div class="testimonial">Incredible! Made unforgettable memories without breaking the bank.</div>
+        <div class="testimonial">Best way to travel as a student. Affordable, fun, and enriching!</div>
+    </div>
+</section>
 <div class="bg-white">
     <div class="text-center pt-16">
         <h2 class="text-gray-800 text-4xl sm:text-5xl md:text-6xl font-bold font-serif">Your next adventure awaits!</h2>
@@ -94,4 +101,30 @@
     </div>
 </div>
 @include('partials.footer')
+@endsection
+
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let testimonials = document.querySelectorAll('.testimonial');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            if (i === index) {
+                testimonial.classList.add('show');
+            } else {
+                testimonial.classList.remove('show');
+            }
+        });
+    }
+
+    showTestimonial(currentIndex);
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+    }, 7000);
+});
+</script>
 @endsection

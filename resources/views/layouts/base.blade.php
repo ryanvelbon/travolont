@@ -31,5 +31,6 @@
 
     <body class="bg-test-1 bg-gray-50">
         @yield('body')
+        @yield('scripts')
     </body>
 </html>
