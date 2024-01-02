@@ -95,38 +95,38 @@
     <div id="testimonial-container" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative h-96 md:h-64">
         <div class="testimonial">
             <div>
-                <img src="https://placehold.co/250x250" class="rounded-full">
+                <img src="{{ asset('assets/img/testimonial1.jpg') }}" class="rounded-full w-64">
             </div>
             <div class="flex-1">
                 <figcaption>
-                    <span class="font-bold">John Smith</span>
+                    <span class="font-bold">Gabriele Esposito</span>
                     <span class="text-sm">Traveler</span>
                 </figcaption>
-                <blockquote>I had an amazing experience! The app helped me explore the world affordably.</blockquote>
+                <blockquote>Traveling on a budget during my gap year wasn't just possible, it was incredible!</blockquote>
             </div>
         </div>
         <div class="testimonial">
             <div>
-                <img src="https://placehold.co/250x250" class="rounded-full">
+                <img src="{{ asset('assets/img/testimonial2.jpg') }}" class="rounded-full w-64">
             </div>
             <div class="flex-1">
                 <figcaption>
-                    <span class="font-bold">John Smith</span>
+                    <span class="font-bold">Lisa Schäfer</span>
                     <span class="text-sm">Traveler</span>
                 </figcaption>
-                <blockquote>Incredible! Made unforgettable memories without breaking the bank.</blockquote>
+                <blockquote>Every destination taught me more about myself and the world than I ever imagined possible.</blockquote>
             </div>
         </div>
         <div class="testimonial">
             <div>
-                <img src="https://placehold.co/250x250" class="rounded-full">
+                <img src="{{ asset('assets/img/testimonial3.jpg') }}" class="rounded-full w-64">
             </div>
             <div class="flex-1">
                 <figcaption>
-                    <span class="font-bold">John Smith</span>
-                    <span class="text-sm">Traveler</span>
+                    <span class="font-bold">Bill & Anne</span>
+                    <span class="text-sm">Host</span>
                 </figcaption>
-                <blockquote>Best way to travel as a student. Affordable, fun, and enriching!</blockquote>
+                <blockquote>Our farmstay has become a vibrant community thanks to the diverse and wonderful guests who have graced our home.</blockquote>
             </div>
         </div>
     </div>
