@@ -59,11 +59,36 @@
             <a href="{{ route('travelers.index') }}" class="btn btn-lg btn-primary mt-5">Search Travelers</a>
         </div>
         <div class="bg-white text-center pt-8 pb-12 px-8 rounded-lg">
-            <img src="https://placehold.co/600x400">
+            <img class="mx-auto" src="https://placehold.co/600x400">
             <h2 class="text-gray-800 text-2xl font-bold mt-6 font-serif">Find a host</h2>
             <p class="text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             <a href="{{ route('hosts.index') }}" class="btn btn-lg btn-primary mt-5">Search Hosts</a>
         </div>
+    </div>
+</section>
+<section class="py-12">
+    <div class="text-center py-12">
+        <h2 class="text-gray-800">
+            <span class="text-base sm:text-lg md:text-xl uppercase">Explore</span>
+            <br>
+            <span class="text-4xl sm:text-5xl md:text-6xl font-bold font-serif">Volunteer Programs</span>
+        </h2>
+        <p class="text-lg md:text-2xl text-gray-700 mt-6">Whether you're an expert or looking to try something new, we have a place for you.</p>
+    </div>
+    <div x-data="{ page: 1, perPage: 4, totalItems: {{ $categories->count() }}, totalPages: Math.ceil({{ $categories->count() }} / 4) }" class="flex justify-center gap-8 items-center">
+        <button @click="page = page > 1 ? page - 1 : totalPages" class="hover:bg-gray-100 p-4 rounded-full"><i class="fa-regular fa-chevron-left text-2xl"></i></button>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            @foreach($categories as $category)
+                <li x-show="Math.ceil(({{ $loop->index + 1 }}) / perPage) === page">
+                    <a href="">
+                        <div class="bg-gray-200 h-64 w-64 p-8">
+                            {{ $category->title }}
+                        </div>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        <button @click="page = page < totalPages ? page + 1 : 1" class="hover:bg-gray-100 p-4 rounded-full"><i class="fa-regular fa-chevron-right text-2xl"></i></button>
     </div>
 </section>
 <section class="bg-secondary-300 py-16">
