@@ -92,10 +92,43 @@
     </div>
 </section>
 <section class="bg-secondary-300 py-16">
-    <div id="testimonial-container">
-        <div class="testimonial">I had an amazing experience! The app helped me explore the world affordably.</div>
-        <div class="testimonial">Incredible! Made unforgettable memories without breaking the bank.</div>
-        <div class="testimonial">Best way to travel as a student. Affordable, fun, and enriching!</div>
+    <div id="testimonial-container" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative h-96 md:h-64">
+        <div class="testimonial">
+            <div>
+                <img src="https://placehold.co/250x250" class="rounded-full">
+            </div>
+            <div class="flex-1">
+                <figcaption>
+                    <span class="font-bold">John Smith</span>
+                    <span class="text-sm">Traveler</span>
+                </figcaption>
+                <blockquote>I had an amazing experience! The app helped me explore the world affordably.</blockquote>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div>
+                <img src="https://placehold.co/250x250" class="rounded-full">
+            </div>
+            <div class="flex-1">
+                <figcaption>
+                    <span class="font-bold">John Smith</span>
+                    <span class="text-sm">Traveler</span>
+                </figcaption>
+                <blockquote>Incredible! Made unforgettable memories without breaking the bank.</blockquote>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div>
+                <img src="https://placehold.co/250x250" class="rounded-full">
+            </div>
+            <div class="flex-1">
+                <figcaption>
+                    <span class="font-bold">John Smith</span>
+                    <span class="text-sm">Traveler</span>
+                </figcaption>
+                <blockquote>Best way to travel as a student. Affordable, fun, and enriching!</blockquote>
+            </div>
+        </div>
     </div>
 </section>
 <section class="bg-white">
