@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('body')
-<div class="bg-white relative" style="background-image: url('');">
+<section class="bg-white relative" style="background-image: url('');">
     <div class="bg-white bg-opacity-80 absolute inset-0"></div>
     <div class="relative z-10">
         <nav class="bg-transparent">
@@ -44,8 +44,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="bg-primary-600">
+</section>
+<section class="bg-primary-600 border-t-8 border-secondary-300">
     <h2 class="text-white text-center pt-32">
         <span class="text-base sm:text-lg md:text-xl uppercase">Connect with</span>
         <br>
@@ -65,7 +65,7 @@
             <a href="{{ route('hosts.index') }}" class="btn btn-lg btn-primary mt-5">Search Hosts</a>
         </div>
     </div>
-</div>
+</section>
 <section class="bg-secondary-300 py-16">
     <div id="testimonial-container">
         <div class="testimonial">I had an amazing experience! The app helped me explore the world affordably.</div>
@@ -73,7 +73,7 @@
         <div class="testimonial">Best way to travel as a student. Affordable, fun, and enriching!</div>
     </div>
 </section>
-<div class="bg-white">
+<section class="bg-white">
     <div class="text-center pt-16">
         <h2 class="text-gray-800 text-4xl sm:text-5xl md:text-6xl font-bold font-serif">Your next adventure awaits!</h2>
     </div>
@@ -90,8 +90,8 @@
         </a>
         @endforeach
     </div>
-</div>
-<div class="bg-white">
+</section>
+<section class="bg-white">
     <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
         <h2 class="text-3xl font-bold font-serif tracking-tight text-gray-800 sm:text-4xl"><span class="text-primary-600">Ready to make a difference?</span><br>Join the community today.</h2>
         <div class="mt-10 flex items-center gap-x-3 lg:mt-0 lg:flex-shrink-0">
@@ -99,7 +99,7 @@
             <a href="#" class="btn btn-secondary">Learn more <span aria-hidden="true">→</span></a>
         </div>
     </div>
-</div>
+</section>
 @include('partials.footer')
 @endsection
 
