@@ -82,6 +82,10 @@ input[type="radio"] {
     @apply bg-secondary-300 hover:bg-white text-black;
 }
 
+.container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
 .input-error-msg {
     @apply mt-2 text-sm text-red-600;
 }

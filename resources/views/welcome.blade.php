@@ -25,7 +25,7 @@
                 </div>
             </div>
         </nav>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
+        <div class="container py-32">
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="bg-test-1 md:col-span-2">
                     <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800">
@@ -117,7 +117,7 @@
     </div>
 </section>
 <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+    <div class="container py-24 sm:py-32 lg:flex lg:items-center lg:justify-between">
         <h2 class="text-3xl font-bold font-serif tracking-tight text-gray-800 sm:text-4xl"><span class="text-primary-600">Ready to make a difference?</span><br>Join the community today.</h2>
         <div class="mt-10 flex items-center gap-x-3 lg:mt-0 lg:flex-shrink-0">
             <a href="#" class="btn btn-primary">Get started</a>
