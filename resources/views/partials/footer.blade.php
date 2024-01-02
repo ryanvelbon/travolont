@@ -5,7 +5,7 @@
       <div class="grid grid-cols-2 gap-8 xl:col-span-2">
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <h3 class="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+            <h3 class="text-sm font-semibold font-serif leading-6 text-gray-900">Solutions</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li>
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Marketing</a>
@@ -22,7 +22,7 @@
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
-            <h3 class="text-sm font-semibold leading-6 text-gray-900">Support</h3>
+            <h3 class="text-sm font-semibold font-serif leading-6 text-gray-900">Support</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li>
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
@@ -41,7 +41,7 @@
         </div>
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+            <h3 class="text-sm font-semibold font-serif leading-6 text-gray-900">Company</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li>
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">About</a>
@@ -61,7 +61,7 @@
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
-            <h3 class="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
+            <h3 class="text-sm font-semibold font-serif leading-6 text-gray-900">Legal</h3>
             <ul role="list" class="mt-6 space-y-4">
               <li>
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Claim</a>
@@ -77,7 +77,7 @@
         </div>
       </div>
       <div class="mt-10 xl:mt-0">
-        <h3 class="text-sm font-semibold leading-6 text-gray-900">Subscribe to our newsletter</h3>
+        <h3 class="text-sm font-semibold font-serif leading-6 text-gray-900">Subscribe to our newsletter</h3>
         <p class="mt-2 text-sm leading-6 text-gray-600">The latest news, articles, and resources, sent to your inbox weekly.</p>
         <form class="mt-6 sm:flex sm:max-w-md">
           <label for="email-address" class="sr-only">Email address</label>
