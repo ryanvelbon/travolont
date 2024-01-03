@@ -26,6 +26,7 @@ class CityCombobox extends Component
         $cities = collect();
 
         $cities = City::where('name', 'LIKE', $this->search . '%')
+                    ->with('country')
                     ->take(10)
                     ->get();
 
