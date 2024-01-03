@@ -67,7 +67,7 @@ class TravelersIndex extends Component
 
         $query->with('travelerProfile.currentCity.country', 'countryOfOrigin');
 
-        $members = $query->paginate(20);
+        $members = $query->paginate(12);
 
         return view('livewire.profile.traveler.index', [
             'members' => $members,

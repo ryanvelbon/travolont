@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <main class="bg-test-2 lg:px-8">
+        <main class="bg-test-2 lg:px-8 min-h-screen">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900 pt-6">Find fellow Travelers</h1>
 
             <div class="block lg:hidden bg-gray-300 p-8">
@@ -234,7 +234,7 @@
                             <div>
                                 <label for="nationality">Nationality</label>
                                 <select wire:model.live="nationality" id="nationality" class="w-full">
-                                    <option selected>-- select --</option>
+                                    <option value="" selected>-- select --</option>
                                     @foreach($countries as $country)
                                         <option value="{{$country->id}}">{{ $country->name }}</option>
                                     @endforeach
@@ -259,7 +259,8 @@
 
                 <!-- Results -->
                 <div class="bg-test-1 lg:col-span-2 xl:col-span-3">
-                    <ul role="list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                    <div wire:loading class="text-gray-600">loading ...</div>
+                    <ul role="list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4" wire:loading.class="opacity-50">
                         @forelse($members as $member)
                             <a href="{{ route('travelers.show', $member->username) }}">
                                 <li class="shadow-lg hover:shadow-2xl">
