@@ -39,7 +39,7 @@ class TravelersIndex extends Component
 
     public function render()
     {
-        $query = User::where('account_type', 'traveler');
+        $query = User::travelers();
 
         if (!empty($this->sex)) {
             $query->where('sex', $this->sex);

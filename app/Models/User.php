@@ -84,4 +84,14 @@ class User extends Authenticatable implements FilamentUser, HasName
             ? Storage::disk('images')->url($this->avatar)
             : Storage::disk('images')->url('default.jpg');
     }
+
+    public function scopeHosts($query)
+    {
+        return $query->where('account_type', 'host');
+    }
+
+    public function scopeTravelers($query)
+    {
+        return $query->where('account_type', 'traveler');
+    }
 }
