@@ -206,7 +206,7 @@
                     class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
                     :class="{'bg-gray-800 text-white': sex == 'm', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'm'}"
                   >
-                    <input x-model="sex" wire:model.lazy="sex" value="m" type="radio" class="hidden">
+                    <input x-model="sex" wire:model.live="sex" value="m" type="radio" class="hidden">
                     <i class="fa-regular fa-mars"></i>
                     <p class="text-xs">Male</p>
                   </label>
@@ -214,7 +214,7 @@
                     class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
                     :class="{'bg-gray-800 text-white': sex == 'f', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'f'}"
                   >
-                    <input x-model="sex" wire:model.lazy="sex" value="f" type="radio" class="hidden">
+                    <input x-model="sex" wire:model.live="sex" value="f" type="radio" class="hidden">
                     <i class="fa-regular fa-venus"></i>
                     <p class="text-xs">Female</p>
                   </label>
@@ -222,7 +222,7 @@
                     class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
                     :class="{'bg-gray-800 text-white': sex == '', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != ''}"
                   >
-                    <input x-model="sex" wire:model.lazy="sex" value="" type="radio" class="hidden">
+                    <input x-model="sex" wire:model.live="sex" value="" type="radio" class="hidden">
                     <i class="fa-regular fa-venus-mars"></i>
                     <p class="text-xs">Both</p>
                   </label>
@@ -233,7 +233,7 @@
               </div>
               <div>
                 <label for="nationality">Nationality</label>
-                <select wire:model="nationality" id="nationality" class="w-full">
+                <select wire:model.live="nationality" id="nationality" class="w-full">
                   <option selected>-- select --</option>
                   @foreach($countries as $country)
                     <option value="{{$country->id}}">{{ $country->name }}</option>
@@ -243,8 +243,8 @@
               <div>
                 <label>Age</label>
                 <div class="grid grid-cols-2 gap-4">
-                  <input wire:model="minAge" type="number">
-                  <input wire:model="maxAge" type="number">
+                  <input wire:model.live="minAge" type="number">
+                  <input wire:model.live="maxAge" type="number">
                 </div>
                 @error('minAge')
                   <div class="input-error-msg">{{ $message }}</div>

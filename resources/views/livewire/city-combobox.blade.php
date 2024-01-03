@@ -2,7 +2,7 @@
   <label for="combobox" class="block text-sm font-medium leading-6 text-gray-900">City</label>
   <div class="relative mt-2">
     <input
-      wire:model="search"
+      wire:model.live="search"
       @click.away="open = false"
       @input="open = true"
       id="combobox"

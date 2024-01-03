@@ -108,7 +108,7 @@
                                     @foreach($hostTypes as $hostType)
                                         <div class="flex items-center">
                                             <input
-                                                wire:model="selectedHostTypes"
+                                                wire:model.live="selectedHostTypes"
                                                 value="{{ $hostType->id }}"
                                                 id="host-type-{{ $hostType->id }}"
                                                 type="checkbox"

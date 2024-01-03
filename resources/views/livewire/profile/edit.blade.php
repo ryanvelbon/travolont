@@ -18,7 +18,7 @@
                 <img src="{{ auth()->user()->avatarUrl() }}" alt="Profile Photo">
             </span>
             <span class="ml-5 rounded-md shadow-sm">
-                <input type="file" wire:model="avatar">
+                <input type="file" wire:model.live="avatar">
             </span>
         </div>
         @error('avatar')
@@ -31,7 +31,7 @@
             <label for="firstName">First Name</label>
 
             <div>
-                <input wire:model.lazy="user.first_name" id="firstName" type="text" class="w-full @error('user.first_name') form-input-error @endError">
+                <input wire:model="user.first_name" id="firstName" type="text" class="w-full @error('user.first_name') form-input-error @endError">
                 @error('user.first_name')
                     <div class="input-error-msg">{{ $message }}</div>
                 @endError
@@ -42,7 +42,7 @@
             <label for="lastName">Last Name</label>
 
             <div>
-                <input wire:model.lazy="user.last_name" id="lastName" type="text" class="w-full @error('user.last_name') form-input-error @endError">
+                <input wire:model="user.last_name" id="lastName" type="text" class="w-full @error('user.last_name') form-input-error @endError">
                 @error('user.last_name')
                     <div class="input-error-msg">{{ $message }}</div>
                 @endError
@@ -52,7 +52,7 @@
         <div>
             <label for="nationality">Nationality</label>
             <select
-                wire:model.lazy="user.nationality_id"
+                wire:model="user.nationality_id"
                 id="nationality"
                 class="mt-2 block w-full"
             >
@@ -73,7 +73,7 @@
                     class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
                     :class="{ 'bg-blue-300': sex == 'm', 'bg-white': sex != 'm' }"
                 >
-                    <input wire:model.lazy="user.sex" x-model="sex" value="m" type="radio" class="hidden">
+                    <input wire:model="user.sex" x-model="sex" value="m" type="radio" class="hidden">
                     <i class="fa-solid fa-mars"></i>
                     <span>Male</span>
                 </label>
@@ -81,7 +81,7 @@
                     class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
                     :class="{ 'bg-pink-300': sex == 'f', 'bg-white': sex != 'f' }"
                 >
-                    <input wire:model.lazy="user.sex" x-model="sex" value="f" type="radio" class="hidden">
+                    <input wire:model="user.sex" x-model="sex" value="f" type="radio" class="hidden">
                     <i class="fa-solid fa-venus"></i>
                     <span>Female</span>
                 </label>
@@ -96,7 +96,7 @@
         <label for="dob_day">Birthday</label>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-2">
             <select
-                wire:model.lazy="dob_day"
+                wire:model="dob_day"
                 id="dob_day"
                 class="mt-2 block w-full"
             >
@@ -106,7 +106,7 @@
                 @endfor
             </select>
             <select
-                wire:model.lazy="dob_month"
+                wire:model="dob_month"
                 class="mt-2 block w-full"
             >
                 <option selected value="">Month</option>
@@ -115,7 +115,7 @@
                 @endforeach
             </select>
             <select
-                wire:model.lazy="dob_year"
+                wire:model="dob_year"
                 class="mt-2 block w-full"
             >
                 <option selected>Year</option>

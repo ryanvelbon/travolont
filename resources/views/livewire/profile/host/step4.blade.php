@@ -4,7 +4,7 @@
             <label for="nDaysPerWeek" class="text-gray-800 text-base sm:text-lg">
                 How many days per week?
             </label>
-            <select wire:model="host.n_days_per_week" id="nDaysPerWeek">
+            <select wire:model.live="host.n_days_per_week" id="nDaysPerWeek">
                 @for($i=1; $i<=7; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor
@@ -20,7 +20,7 @@
             <label for="maxHours" class="text-gray-800 text-base sm:text-lg">
                 Maximum hours expected to work in a day?
             </label>
-            <select wire:model="host.max_hours_per_day" id="maxHours">
+            <select wire:model.live="host.max_hours_per_day" id="maxHours">
                 @for($i=1; $i<=12; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'hour' : 'hours' }}</option>
                 @endfor
@@ -36,7 +36,7 @@
             <label for="minStay" class="text-gray-800 text-base sm:text-lg">
                 What is the minimum duration of stay?
             </label>
-            <select wire:model="host.min_stay_days" id="minStay">
+            <select wire:model.live="host.min_stay_days" id="minStay">
                 @for($i=1; $i<=6; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor
@@ -58,7 +58,7 @@
             <label for="maxStay" class="text-gray-800 text-base sm:text-lg">
                 What is the maximum duration of stay?
             </label>
-            <select wire:model="host.max_stay_days" id="maxStay">
+            <select wire:model.live="host.max_stay_days" id="maxStay">
                 @for($i=1; $i<=6; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor

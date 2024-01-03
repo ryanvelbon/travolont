@@ -12,7 +12,7 @@
             }"
             @click="typeId = '{{ $hostType->id }}'"
         >
-            <input type="radio" value="{{ $hostType->id }}" wire:model="host.type_id" class="hidden">
+            <input type="radio" value="{{ $hostType->id }}" wire:model.live="host.type_id" class="hidden">
             <i class="fa-solid fa-{{ $hostType->icon }} mr-4"></i>
             <span class="font-medium">{{ $hostType->title }}</span>
         </label>

@@ -27,7 +27,7 @@
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="username" id="username" type="text" required autofocus class="appearance-none block w-full @error('username') form-input-error @enderror" />
+                        <input wire:model="username" id="username" type="text" required autofocus class="appearance-none block w-full @error('username') form-input-error @enderror" />
                     </div>
 
                     @error('username')
@@ -41,7 +41,7 @@
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="email" id="email" type="email" required class="appearance-none block w-full @error('email') form-input-error @enderror" />
+                        <input wire:model="email" id="email" type="email" required class="appearance-none block w-full @error('email') form-input-error @enderror" />
                     </div>
 
                     @error('email')
@@ -55,7 +55,7 @@
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="password" id="password" type="password" required class="appearance-none block w-full @error('password') form-input-error @enderror" />
+                        <input wire:model="password" id="password" type="password" required class="appearance-none block w-full @error('password') form-input-error @enderror" />
                     </div>
 
                     @error('password')
@@ -69,7 +69,7 @@
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password" required class="appearance-none block w-full" />
+                        <input wire:model="passwordConfirmation" id="password_confirmation" type="password" required class="appearance-none block w-full" />
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@
                                 class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
                                 :class="{'bg-black text-white': accountType == 'traveler', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'traveler'}"
                             >
-                                <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
+                                <input wire:model="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
                                 <i class="fa-regular fa-backpack"></i>
                                 <span class="ml-2 text-sm font-medium">I am a Traveler</span>
                             </label>
@@ -90,7 +90,7 @@
                                 class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
                                 :class="{'bg-black text-white': accountType == 'host', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'host'}"
                             >
-                                <input wire:model.lazy="accountType" x-model="accountType" type="radio" value="host" class="hidden">
+                                <input wire:model="accountType" x-model="accountType" type="radio" value="host" class="hidden">
                                 <i class="fa-regular fa-house-night"></i>
                                 <span class="ml-2 text-sm font-medium">I am a Host</span>
                             </label>

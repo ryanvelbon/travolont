@@ -11,7 +11,7 @@
         >
             <input
                 @click="checked.includes({{ $service->id }}) ? checked = checked.filter(i => i !== {{ $service->id }}) : checked.push({{ $service->id }})"
-                wire:model="selectedServices"
+                wire:model.live="selectedServices"
                 type="checkbox"
                 value="{{ $service->id }}"
                 class="hidden"
