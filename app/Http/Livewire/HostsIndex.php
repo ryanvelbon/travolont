@@ -38,6 +38,8 @@ class HostsIndex extends Component
             $query->whereIn('type_id', $this->selectedHostTypes);
         }
 
+        $query->with('user', 'type', 'city.country');
+
         $hosts = $query->paginate(10);
 
         return view('livewire.profile.host.index', [

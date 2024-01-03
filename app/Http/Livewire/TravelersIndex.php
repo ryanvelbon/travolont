@@ -65,6 +65,8 @@ class TravelersIndex extends Component
             });
         }
 
+        $query->with('travelerProfile.currentCity.country', 'countryOfOrigin');
+
         $members = $query->paginate(20);
 
         return view('livewire.profile.traveler.index', [
