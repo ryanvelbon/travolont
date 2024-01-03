@@ -62,7 +62,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('account_type')
                     ->size('sm'),
                 Tables\Columns\ImageColumn::make('avatar')
-                    ->disk('avatars'),
+                    ->disk('images'),
                 Tables\Columns\TextColumn::make('username')
                     ->size('sm'),
                 Tables\Columns\TextColumn::make('email')
