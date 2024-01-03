@@ -27,7 +27,7 @@ class ProfileEdit extends Component
         'user.nationality_id' => 'required|exists:countries,id',
         'user.dob'            => 'required|date',
 
-        'avatar' => 'image|max:1000', // 1 MB
+        'avatar' => 'nullable|image|max:1000', // 1 MB
 
         'dob_day'   => ['required', 'integer', 'between:1,31'],
         'dob_month' => ['required', 'integer', 'between:1,12'],
@@ -61,11 +61,11 @@ class ProfileEdit extends Component
     {
         $this->validate();
 
-        $filename = $this->avatar->store('/', 'images');
-
-        $this->user->avatar = $filename;
-
-        $this->user->save();
+        if ($this->avatar) {
+            $filename = $this->avatar->store('/', 'images');
+            $this->user->avatar = $filename;
+            $this->user->save();
+        }
 
         // return redirect()->back()->with('success', 'Profile updated successfully.');
 
