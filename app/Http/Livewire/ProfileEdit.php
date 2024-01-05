@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Country;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -11,7 +12,6 @@ class ProfileEdit extends Component
 {
     use WithFileUploads;
 
-    public $countries;
     public $user;
 
     public $dob_day;
@@ -36,8 +36,6 @@ class ProfileEdit extends Component
 
     public function mount()
     {
-        $this->countries = Country::all();
-
         $this->user = auth()->user();
 
         if ($this->user->dob) {
@@ -54,7 +52,13 @@ class ProfileEdit extends Component
 
     public function render()
     {
-        return view('livewire.profile.edit')->extends('layouts.auth', ['showNavbar' => true]);
+        $countries = Cache::rememberForever('countries', function () {
+            return Country::all();
+        });
+
+        return view('livewire.profile.edit', [
+            'countries' => $countries,
+        ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
     public function save()
