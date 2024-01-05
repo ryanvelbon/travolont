@@ -6,6 +6,7 @@ use App\Models\HostType;
 use App\Models\Service;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class ProfileEditHost extends Component
 {
@@ -35,8 +36,6 @@ class ProfileEditHost extends Component
 
         'selectedServices'       => 'required|array|min:3|distinct',
     ];
-
-    protected $listeners = ['citySelected' => 'onCitySelected'];
 
     protected $messages = [
         'host.type_id.required' => 'Please select a category',
@@ -70,9 +69,10 @@ class ProfileEditHost extends Component
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
-    public function onCitySelected($cityId)
+    #[On('city-selected')]
+    public function updateCity($id)
     {
-        $this->host->city_id = $cityId;
+        $this->host->city_id = $id;
     }
 
     public function previousStep()

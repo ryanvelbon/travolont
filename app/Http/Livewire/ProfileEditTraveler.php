@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Models\Traveler;
 
 class ProfileEditTraveler extends Component
@@ -14,8 +15,6 @@ class ProfileEditTraveler extends Component
     protected $rules = [
         'traveler.current_city_id' => 'required|exists:cities,id',
     ];
-
-    protected $listeners = ['citySelected' => 'onCitySelected'];
 
     public function mount()
     {
@@ -29,9 +28,10 @@ class ProfileEditTraveler extends Component
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
 
-    public function onCitySelected($cityId)
+    #[On('city-selected')]
+    public function updateCurrentCity($id)
     {
-        $this->traveler->current_city_id = $cityId;
+        $this->traveler->current_city_id = $id;
     }
 
     public function previousStep()
