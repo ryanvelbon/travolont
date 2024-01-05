@@ -203,24 +203,24 @@
                                 <legend class="block text-sm font-medium text-gray-900">Gender</legend>
                                 <fieldset x-data="{ sex: '' }" class="flex gap-2 justify-center items-center mt-4">
                                     <label
-                                        class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
-                                        :class="{'bg-gray-800 text-white': sex == 'm', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'm'}"
+                                        class="radio-btn w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                                        :class="{'bg-secondary-300 text-black': sex == 'm', 'bg-white hover:bg-secondary-100': sex != 'm'}"
                                     >
                                         <input x-model="sex" wire:model.live="sex" value="m" type="radio" class="hidden">
                                         <i class="fa-regular fa-mars"></i>
                                         <p class="text-xs">Male</p>
                                     </label>
                                     <label
-                                        class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
-                                        :class="{'bg-gray-800 text-white': sex == 'f', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != 'f'}"
+                                        class="radio-btn w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                                        :class="{'bg-secondary-300 text-black': sex == 'f', 'bg-white hover:bg-secondary-100': sex != 'f'}"
                                     >
                                         <input x-model="sex" wire:model.live="sex" value="f" type="radio" class="hidden">
                                         <i class="fa-regular fa-venus"></i>
                                         <p class="text-xs">Female</p>
                                     </label>
                                     <label
-                                        class="hover:shadow-md cursor-pointer w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
-                                        :class="{'bg-gray-800 text-white': sex == '', 'bg-transparent ring-1 ring-gray-300 hover:bg-gray-100': sex != ''}"
+                                        class="radio-btn w-16 h-16 rounded-xl flex flex-col gap-1 justify-center items-center"
+                                        :class="{'bg-secondary-300 text-black': sex == '', 'bg-white hover:bg-secondary-1000': sex != ''}"
                                     >
                                         <input x-model="sex" wire:model.live="sex" value="" type="radio" class="hidden">
                                         <i class="fa-regular fa-venus-mars"></i>

@@ -77,7 +77,7 @@
                     <div class="mt-4 flex justify-around">
                         <div>
                             <label
-                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer select-none border border-t border-l border-4 border-black"
+                                class="inline-flex items-center px-8 py-4 rounded-xl radio-btn"
                                 :class="{'bg-primary-500 text-white': accountType == 'traveler', 'bg-gray-100 hover:bg-gray-200': accountType != 'traveler'}"
                             >
                                 <input wire:model="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
@@ -87,7 +87,7 @@
                         </div>
                         <div>
                             <label
-                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer select-none border border-t border-l border-4 border-black"
+                                class="inline-flex items-center px-8 py-4 rounded-xl radio-btn"
                                 :class="{'bg-primary-500 text-white': accountType == 'host', 'bg-gray-100 hover:bg-gray-200': accountType != 'host'}"
                             >
                                 <input wire:model="accountType" x-model="accountType" type="radio" value="host" class="hidden">
