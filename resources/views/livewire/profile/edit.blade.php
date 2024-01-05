@@ -70,16 +70,16 @@
             <label for="male">Gender</label>
             <fieldset class="mt-4 flex justify-center space-x-2">
                 <label
-                    class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
-                    :class="{ 'bg-blue-300': sex == 'm', 'bg-white': sex != 'm' }"
+                    class="radio-btn rounded-xl px-5 py-3"
+                    :class="sex == 'm' ? 'bg-secondary-300' : 'bg-white'"
                 >
                     <input wire:model="sex" x-model="sex" value="m" type="radio" class="hidden">
                     <i class="fa-solid fa-mars"></i>
                     <span>Male</span>
                 </label>
                 <label
-                    class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
-                    :class="{ 'bg-pink-300': sex == 'f', 'bg-white': sex != 'f' }"
+                    class="radio-btn rounded-xl px-5 py-3"
+                    :class="sex == 'f' ? 'bg-secondary-300' : 'bg-white'"
                 >
                     <input wire:model="sex" x-model="sex" value="f" type="radio" class="hidden">
                     <i class="fa-solid fa-venus"></i>
