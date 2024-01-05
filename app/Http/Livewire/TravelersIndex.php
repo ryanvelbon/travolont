@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Country;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -39,6 +40,10 @@ class TravelersIndex extends Component
 
     public function render()
     {
+        $countries = Cache::rememberForever('countries', function () {
+            return Country::all();
+        });
+
         $query = User::travelers();
 
         if (!empty($this->sex)) {
@@ -71,8 +76,7 @@ class TravelersIndex extends Component
 
         return view('livewire.profile.traveler.index', [
             'members' => $members,
-
-            'countries' => Country::all(),
+            'countries' => $countries,
         ]);
     }
 
