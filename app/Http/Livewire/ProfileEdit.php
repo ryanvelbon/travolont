@@ -12,42 +12,47 @@ class ProfileEdit extends Component
 {
     use WithFileUploads;
 
-    public $user;
-
-    public $dob_day;
-    public $dob_month;
-    public $dob_year;
-
-    public $avatar;
+    public $firstName, $lastName, $dob, $sex, $nationalityId, $avatar;
+    public $dobDay, $dobMonth, $dobYear;
 
     protected $rules = [
-        'user.first_name'     => 'required|min:2',
-        'user.last_name'      => 'required|min:2',
-        'user.sex'            => 'required|in:m,f',
-        'user.nationality_id' => 'required|exists:countries,id',
-        'user.dob'            => 'required|date',
+        'firstName'     => 'required|min:2',
+        'lastName'      => 'required|min:2',
+        'dob'           => 'required|date',
+        'sex'           => 'required|in:m,f',
+        'nationalityId' => 'required|exists:countries,id',
+        'avatar'        => 'nullable|image|max:1000',
 
-        'avatar' => 'nullable|image|max:1000', // 1 MB
-
-        'dob_day'   => ['required', 'integer', 'between:1,31'],
-        'dob_month' => ['required', 'integer', 'between:1,12'],
-        'dob_year'  => ['required', 'integer', 'between:1900,2003'],
+        'dobDay'   => ['required', 'integer', 'between:1,31'],
+        'dobMonth' => ['required', 'integer', 'between:1,12'],
+        'dobYear'  => ['required', 'integer', 'between:1900,2003'],
     ];
 
     public function mount()
     {
-        $this->user = auth()->user();
+        $user = auth()->user();
 
-        if ($this->user->dob) {
-            $this->dob_day = $this->user->dob->day;
-            $this->dob_month = $this->user->dob->month;
-            $this->dob_year = $this->user->dob->year;
+        $this->firstName = $user->first_name ?? '';
+        $this->lastName = $user->last_name ?? '';
+        $this->dob = $user->dob ? $user->dob->format('Y-m-d') : null;
+        $this->sex = $user->sex ?? null;
+        $this->nationalityId = $user->nationality_id ?? null;
+        $this->avatar = $user->avatar ?? null;
+
+        if ($user->dob) {
+            $this->dobDay = $user->dob->day;
+            $this->dobMonth = $user->dob->month;
+            $this->dobYear = $user->dob->year;
         }
     }
 
-    public function updated()
+    public function updated($propertyName)
     {
-        $this->user->dob = Carbon::create($this->dob_year, $this->dob_month, $this->dob_day);
+        $this->validateOnly($propertyName);
+
+        if ($propertyName === 'dobDay' || $propertyName === 'dobMonth' || $propertyName === 'dobYear') {
+            $this->dob = Carbon::create($this->dobYear, $this->dobMonth, $this->dobDay)->format('Y-m-d');
+        }
     }
 
     public function render()
@@ -65,16 +70,24 @@ class ProfileEdit extends Component
     {
         $this->validate();
 
+        $user = auth()->user();
+
+        $user->first_name = $this->firstName;
+        $user->last_name = $this->lastName;
+        $user->dob = $this->dob;
+        $user->sex = $this->sex;
+        $user->nationality_id = $this->nationalityId;
+
         if ($this->avatar) {
             $filename = $this->avatar->store('/', 'images');
-            $this->user->avatar = $filename;
+            $user->avatar = $filename;
         }
 
-        $this->user->save();
+        $user->save();
 
-        // return redirect()->back()->with('success', 'Profile updated successfully.');
+        session()->flash('success', 'Profile successfully updated.');
 
-        switch ($this->user->account_type) {
+        switch ($user->account_type) {
             case 'host':
                 return redirect()->route('profile.edit.host');
             case 'traveler':

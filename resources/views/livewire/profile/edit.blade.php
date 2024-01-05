@@ -31,8 +31,8 @@
             <label for="firstName">First Name</label>
 
             <div>
-                <input wire:model="user.first_name" id="firstName" type="text" class="w-full @error('user.first_name') form-input-error @endError">
-                @error('user.first_name')
+                <input wire:model="firstName" id="firstName" type="text" class="w-full @error('firstName') form-input-error @endError">
+                @error('firstName')
                     <div class="input-error-msg">{{ $message }}</div>
                 @endError
             </div>
@@ -42,8 +42,8 @@
             <label for="lastName">Last Name</label>
 
             <div>
-                <input wire:model="user.last_name" id="lastName" type="text" class="w-full @error('user.last_name') form-input-error @endError">
-                @error('user.last_name')
+                <input wire:model="lastName" id="lastName" type="text" class="w-full @error('lastName') form-input-error @endError">
+                @error('lastName')
                     <div class="input-error-msg">{{ $message }}</div>
                 @endError
             </div>
@@ -52,7 +52,7 @@
         <div>
             <label for="nationality">Nationality</label>
             <select
-                wire:model="user.nationality_id"
+                wire:model="nationalityId"
                 id="nationality"
                 class="mt-2 block w-full"
             >
@@ -61,19 +61,19 @@
                     <option value="{{$country->id}}">{{ $country->name }}</option>
                 @endforeach
             </select>
-            @error('user.nationality_id')
+            @error('nationalityId')
                 <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>
 
-        <div x-data="{ sex: null }">
+        <div x-data="{ sex: @entangle('sex') }">
             <label for="male">Gender</label>
             <fieldset class="mt-4 flex justify-center space-x-2">
                 <label
                     class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
                     :class="{ 'bg-blue-300': sex == 'm', 'bg-white': sex != 'm' }"
                 >
-                    <input wire:model="user.sex" x-model="sex" value="m" type="radio" class="hidden">
+                    <input wire:model="sex" x-model="sex" value="m" type="radio" class="hidden">
                     <i class="fa-solid fa-mars"></i>
                     <span>Male</span>
                 </label>
@@ -81,12 +81,12 @@
                     class="ring-1 ring-gray-300 text-gray-800 px-5 py-3 rounded-full cursor-pointer hover:shadow-md"
                     :class="{ 'bg-pink-300': sex == 'f', 'bg-white': sex != 'f' }"
                 >
-                    <input wire:model="user.sex" x-model="sex" value="f" type="radio" class="hidden">
+                    <input wire:model="sex" x-model="sex" value="f" type="radio" class="hidden">
                     <i class="fa-solid fa-venus"></i>
                     <span>Female</span>
                 </label>
             </fieldset>
-            @error('user.sex')
+            @error('sex')
                 <div class="input-error-msg">{{ $message }}</div>
             @endError
         </div>
@@ -96,7 +96,7 @@
         <label for="dob_day">Birthday</label>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-2">
             <select
-                wire:model="dob_day"
+                wire:model="dobDay"
                 id="dob_day"
                 class="mt-2 block w-full"
             >
@@ -106,7 +106,7 @@
                 @endfor
             </select>
             <select
-                wire:model="dob_month"
+                wire:model="dobMonth"
                 class="mt-2 block w-full"
             >
                 <option selected value="">Month</option>
@@ -115,7 +115,7 @@
                 @endforeach
             </select>
             <select
-                wire:model="dob_year"
+                wire:model="dobYear"
                 class="mt-2 block w-full"
             >
                 <option selected>Year</option>
@@ -125,17 +125,17 @@
             </select>
         </div>
         <div>
-            @error('dob_day')
+            @error('dobDay')
                 <div class="input-error-msg">{{ $message }}</div>
             @enderror
-            @error('dob_month')
+            @error('dobMonth')
                 <div class="input-error-msg">{{ $message }}</div>
             @enderror
-            @error('dob_year')
+            @error('dobYear')
                 <div class="input-error-msg">{{ $message }}</div>
             @enderror
         </div>
-        @error('user.dob')
+        @error('dob')
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>
