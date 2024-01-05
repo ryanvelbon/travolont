@@ -77,8 +77,8 @@
                     <div class="mt-4 flex justify-around">
                         <div>
                             <label
-                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
-                                :class="{'bg-black text-white': accountType == 'traveler', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'traveler'}"
+                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer select-none border border-t border-l border-4 border-black"
+                                :class="{'bg-primary-500 text-white': accountType == 'traveler', 'bg-gray-100 hover:bg-gray-200': accountType != 'traveler'}"
                             >
                                 <input wire:model="accountType" x-model="accountType" type="radio" value="traveler" class="hidden">
                                 <i class="fa-regular fa-backpack"></i>
@@ -87,8 +87,8 @@
                         </div>
                         <div>
                             <label
-                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer"
-                                :class="{'bg-black text-white': accountType == 'host', 'bg-gray-100 hover:bg-gray-200 ring-1 ring-inset ring-gray-800': accountType != 'host'}"
+                                class="inline-flex items-center px-8 py-4 rounded-xl cursor-pointer select-none border border-t border-l border-4 border-black"
+                                :class="{'bg-primary-500 text-white': accountType == 'host', 'bg-gray-100 hover:bg-gray-200': accountType != 'host'}"
                             >
                                 <input wire:model="accountType" x-model="accountType" type="radio" value="host" class="hidden">
                                 <i class="fa-regular fa-house-night"></i>
