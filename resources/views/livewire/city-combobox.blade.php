@@ -14,6 +14,7 @@
                 x-show="$wire.query.length > 0"
                 @click="
                     $wire.set('query', '')
+                    $wire.set('selectedCityId', null)
                     $refs.query.focus()
                 "
             >
