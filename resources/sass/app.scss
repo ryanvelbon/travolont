@@ -70,16 +70,12 @@ input[type="radio"] {
     @apply bg-primary-500 hover:bg-white text-white hover:text-black
 }
 
-.btn-primary-light {
-    @apply bg-primary-100 hover:bg-primary-200 text-primary-700;
-}
-
-.btn-primary-outline {
-    @apply border border-primary-400 text-primary-700 hover:bg-primary-100 hover:border-primary-500;
-}
-
 .btn-secondary {
     @apply bg-secondary-300 hover:bg-white text-black;
+}
+
+.btn-muted {
+    @apply bg-white text-black hover:text-primary-600 hover:border-primary-500;
 }
 
 .container {

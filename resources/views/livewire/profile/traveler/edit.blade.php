@@ -11,7 +11,7 @@
 
     <div class="flex justify-between">
         @if ($step > 1)
-            <button wire:click="previousStep" class="btn btn-primary-outline">Previous</button>
+            <button wire:click="previousStep" class="btn btn-muted">Previous</button>
         @else
             <div>
                 <!-- Empty div for justify-between to work properly. -->
