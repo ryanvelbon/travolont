@@ -5,7 +5,7 @@
 >
     @foreach($categories as $category)
         <div
-            class="py-3 flex justify-center items-center cursor-pointer border border-black border-t border-l border-2"
+            class="py-3 flex justify-center items-center cursor-pointer select-none border border-black border-t border-l border-2"
             :class="selectedCategory == {{ $category->id }} ? 'bg-secondary-300' : 'bg-white hover:bg-secondary-100'"
             @click="selectedCategory = {{ $category->id }}; $wire.set('host.type_id', {{ $category->id }})"
         >

@@ -1,7 +1,7 @@
 <form
     method="POST"
     wire:submit.prevent="save"
-    class="mx-auto max-w-2xl px-4 py-4 sm:px-6 lg:px-8 bg-gray-100"
+    class="form mx-auto max-w-2xl"
 >
     @csrf
 

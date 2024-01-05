@@ -1,4 +1,4 @@
-<div class="sm:mx-auto sm:w-full sm:max-w-xl shadow-2xl p-5">
+<div class="form sm:mx-auto sm:w-full sm:max-w-xl">
     <div class="bg-test-1 min-h-[350]">
     @if ($step === 1)
         @include('livewire.profile.host.step1')
