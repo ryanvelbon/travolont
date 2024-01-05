@@ -68,8 +68,9 @@ class ProfileEdit extends Component
         if ($this->avatar) {
             $filename = $this->avatar->store('/', 'images');
             $this->user->avatar = $filename;
-            $this->user->save();
         }
+
+        $this->user->save();
 
         // return redirect()->back()->with('success', 'Profile updated successfully.');
 
