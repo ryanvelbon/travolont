@@ -6,6 +6,7 @@ use App\Models\Host;
 use App\Models\HostType;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 class HostsIndex extends Component
 {
@@ -14,11 +15,10 @@ class HostsIndex extends Component
     public $selectedCity;
     public $selectedHostTypes = [];
 
-    protected $listeners = ['citySelected' => 'onCitySelected'];
-
-    public function onCitySelected($cityId)
+    #[On('city-selected')]
+    public function updateSelectedCity($id)
     {
-        $this->selectedCity = $cityId;
+        $this->selectedCity = $id;
     }
 
     public function updated()

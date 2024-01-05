@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 class TravelersIndex extends Component
 {
@@ -18,8 +19,6 @@ class TravelersIndex extends Component
     public $minAge = 18;
     public $maxAge = 80;
     public $currentCity;
-
-    protected $listeners = ['citySelected' => 'onCitySelected'];
 
     protected $rules = [
         'minAge' => 'numeric|min:18',
@@ -36,6 +35,12 @@ class TravelersIndex extends Component
         }
 
         $this->resetPage();
+    }
+
+    #[On('city-selected')]
+    public function updateCurrentCity($id)
+    {
+        $this->currentCity = $id;
     }
 
     public function render()
@@ -78,10 +83,5 @@ class TravelersIndex extends Component
             'members' => $members,
             'countries' => $countries,
         ]);
-    }
-
-    public function onCitySelected($cityId)
-    {
-        $this->currentCity = $cityId;
     }
 }
