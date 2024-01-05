@@ -1,21 +1,17 @@
 <p class="text-gray-800 text-base sm:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod?</p>
 <div
-    x-data="{ typeId: '{{ $host->type_id }}' }"
+    x-data="{ selectedCategory: @entangle('host.type_id') }"
     class="grid grid-cols-1 sm:grid-cols-2 gap-1 py-4"
 >
-    @foreach($hostTypes as $hostType)
-        <label
-            class="py-3 flex justify-center items-center cursor-pointer"
-            :class="{
-                'bg-black text-white': typeId == '{{ $hostType->id }}',
-                'bg-gray-200 hover:bg-gray-300': typeId != '{{ $hostType->id }}'
-            }"
-            @click="typeId = '{{ $hostType->id }}'"
+    @foreach($categories as $category)
+        <div
+            class="py-3 flex justify-center items-center cursor-pointer border border-black border-t border-l border-2"
+            :class="selectedCategory == {{ $category->id }} ? 'bg-secondary-300' : 'bg-white hover:bg-secondary-100'"
+            @click="selectedCategory = {{ $category->id }}; $wire.set('host.type_id', {{ $category->id }})"
         >
-            <input type="radio" value="{{ $hostType->id }}" wire:model.live="host.type_id" class="hidden">
-            <i class="fa-solid fa-{{ $hostType->icon }} mr-4"></i>
-            <span class="font-medium">{{ $hostType->title }}</span>
-        </label>
+            <i class="fa-solid fa-{{ $category->icon }} mr-4"></i>
+            <span>{{ $category->title }}</span>
+        </div>
     @endforeach
 
     @error('host.type_id')

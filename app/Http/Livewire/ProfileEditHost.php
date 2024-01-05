@@ -58,7 +58,7 @@ class ProfileEditHost extends Component
         $services = Service::orderBy('order')->get();
 
         return view('livewire.profile.host.edit', [
-            'hostTypes' => HostType::all(),
+            'categories' => HostType::all(),
             'services'  => $services,
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
