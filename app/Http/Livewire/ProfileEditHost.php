@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\HostType;
 use App\Models\Service;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class ProfileEditHost extends Component
@@ -55,10 +56,16 @@ class ProfileEditHost extends Component
 
     public function render()
     {
-        $services = Service::orderBy('order')->get();
+        $categories = Cache::rememberForever('host_types', function () {
+            return HostType::all();
+        });
+
+        $services = Cache::rememberForever('services', function () {
+            return Service::orderBy('order')->get();
+        });
 
         return view('livewire.profile.host.edit', [
-            'categories' => HostType::all(),
+            'categories' => $categories,
             'services'  => $services,
         ])->extends('layouts.auth', ['showNavbar' => true]);
     }
