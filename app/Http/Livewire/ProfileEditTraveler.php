@@ -25,7 +25,7 @@ class ProfileEditTraveler extends Component
     {
         return view('livewire.profile.traveler.edit', [
             // 
-        ])->extends('layouts.auth', ['showNavbar' => true]);
+        ])->extends('layouts.auth', ['showNavbar' => true, 'bgColor' => 'bg-secondary-300']);
     }
 
     #[On('city-selected')]

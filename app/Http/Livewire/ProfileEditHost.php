@@ -66,7 +66,7 @@ class ProfileEditHost extends Component
         return view('livewire.profile.host.edit', [
             'categories' => $categories,
             'services'  => $services,
-        ])->extends('layouts.auth', ['showNavbar' => true]);
+        ])->extends('layouts.auth', ['showNavbar' => true, 'bgColor' => 'bg-secondary-300']);
     }
 
     #[On('city-selected')]

@@ -63,7 +63,7 @@ class ProfileEdit extends Component
 
         return view('livewire.profile.edit', [
             'countries' => $countries,
-        ])->extends('layouts.auth', ['showNavbar' => true]);
+        ])->extends('layouts.auth', ['showNavbar' => true, 'bgColor' => 'bg-secondary-300']);
     }
 
     public function save()
