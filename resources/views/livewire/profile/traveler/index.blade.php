@@ -201,7 +201,7 @@
                     </button>
 
                     <div class="hidden lg:block">
-                        <form class="space-y-10 divide-y divide-gray-200">
+                        <form class="flex flex-col gap-6">
                             <div>
                                 <legend class="block text-sm font-medium text-gray-900">Gender</legend>
                                 <fieldset x-data="{ sex: '' }" class="flex gap-2 justify-center items-center mt-4">
@@ -256,6 +256,7 @@
                                     <div class="input-error-msg">{{ $message }}</div>
                                 @endError
                             </div>
+                            <button wire:click="resetFilters" class="w-full px-4 py-2 text-gray-700 border border-gray-300 hover:border-gray-500 bg-gray-100 hover:bg-gray-200">Reset Filters</button>
                         </form>
                     </div>
                 </aside>

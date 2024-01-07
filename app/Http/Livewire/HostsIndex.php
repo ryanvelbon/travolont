@@ -26,6 +26,11 @@ class HostsIndex extends Component
         $this->resetPage();
     }
 
+    public function resetFilters()
+    {
+        $this->reset();
+    }
+
     public function render()
     {
         $query = Host::query();

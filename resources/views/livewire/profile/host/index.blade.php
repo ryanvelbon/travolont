@@ -122,6 +122,7 @@
                                     @endforeach
                                 </div>
                             </fieldset>
+                            <button wire:click="resetFilters" class="w-full px-4 py-2 text-gray-700 border border-gray-300 hover:border-gray-500 bg-gray-100 hover:bg-gray-200">Reset Filters</button>
                         </div>
                     </div>
                 </aside>

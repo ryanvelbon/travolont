@@ -43,6 +43,11 @@ class TravelersIndex extends Component
         $this->currentCity = $id;
     }
 
+    public function resetFilters()
+    {
+        $this->reset();
+    }
+
     public function render()
     {
         $countries = Cache::rememberForever('countries', function () {
