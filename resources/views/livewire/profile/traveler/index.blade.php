@@ -300,7 +300,10 @@
                                 </li>
                             </a>
                         @empty
-                            <div class="bg-gray-200 text-gray-700">No results.</div>
+                            <div class="col-span-full h-screen text-gray-700 text-center pt-32">
+                                <h3 class="font-bold text-2xl mb-4">No travelers found</h3>
+                                <p>There are no matching travelers for your search criteria. Try updating your search.</p>
+                            </div>
                         @endforelse
                     </ul>
                     <div class="p-6">
