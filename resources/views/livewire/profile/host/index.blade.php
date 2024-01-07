@@ -107,17 +107,19 @@
                             @livewire('city-combobox')
                             <fieldset class="mt-6">
                                 <legend class="block text-sm font-medium text-gray-900">Categories</legend>
-                                <div class="flex flex-wrap gap-2 pt-6">
-                                    @foreach($hostTypes as $hostType)
+                                <div x-data="{ selected: @entangle('selectedHostTypes').live }" class="flex flex-wrap gap-2 pt-6">
+                                    @foreach($categories as $category)
                                         <label
-                                            wire:key="{{ $hostType->id }}"
+                                            wire:key="{{ $category->id }}"
                                             class="text-sm text-gray-600 px-4 py-2 rounded-full cursor-pointer select-none border border-gray-300"
+                                            :class="selected.includes({{ $category->id }}) ? 'bg-secondary-300'  : 'bg-gray-200 hover:bg-gray-300'"
                                         >
                                             <input
-                                                value="{{ $hostType->id }}"
+                                                x-model="selected"
+                                                value="{{ $category->id }}"
                                                 type="checkbox"
                                             >
-                                            <span>{{ $hostType->title }}</span>
+                                            <span>{{ $category->title }}</span>
                                         </label>
                                     @endforeach
                                 </div>

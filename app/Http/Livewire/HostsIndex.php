@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Host;
 use App\Models\HostType;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
@@ -47,9 +48,13 @@ class HostsIndex extends Component
 
         $hosts = $query->paginate(10);
 
+        $categories = Cache::rememberForever('host_types', function () {
+            return HostType::all();
+        });
+
         return view('livewire.profile.host.index', [
             'hosts' => $hosts,
-            'hostTypes' => HostType::all(),
+            'categories' => $categories,
         ]);
     }
 }
