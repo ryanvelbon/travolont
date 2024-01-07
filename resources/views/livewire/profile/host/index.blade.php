@@ -83,7 +83,10 @@
                 </h1>
             </div>
 
-            <div class="lg:flex lg:gap-4">
+            <div class="lg:flex lg:gap-4 relative">
+
+                <x-loading />
+
                 <aside class="lg:w-96">
                     <h2 class="sr-only">Filters</h2>
 
