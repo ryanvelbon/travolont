@@ -12,7 +12,7 @@ class ProfileEditHost extends Component
 {
     public $host;
 
-    public $selectedServices;
+    public $selectedServices = [];
 
     public $step = 1;
 
@@ -20,13 +20,13 @@ class ProfileEditHost extends Component
         'host.type_id'           => 'required|exists:host_types,id',
         'host.city_id'           => 'required|exists:cities,id',
         'host.is_registered_biz' => 'required',
-        'host.biz_name'          => '',
-        'host.biz_type'          => '',
-        'host.biz_reg_no'        => '',
-        'host.biz_address'       => '',
-        'host.biz_email'         => 'email',
-        'host.biz_phone'         => '',
-        'host.biz_website'       => '',
+        'host.biz_name'          => 'nullable|min:3|max:60',
+        'host.biz_type'          => 'nullable',
+        'host.biz_reg_no'        => 'nullable',
+        'host.biz_address'       => 'nullable',
+        'host.biz_email'         => 'nullable|email',
+        'host.biz_phone'         => 'nullable',
+        'host.biz_website'       => 'nullable',
         'host.title'             => 'required|min:10|max:80',
         'host.description'       => 'required|min:50|max:500',
         'host.max_hours_per_day' => 'required|numeric|min:1|max:12',
