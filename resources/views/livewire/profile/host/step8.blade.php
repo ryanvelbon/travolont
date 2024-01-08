@@ -1,4 +1,4 @@
-<div>This is step 8</div>
-<div>
-    <p class="text-4xl text-center">Finished!</p>
+<div class="mt-24 text-center">
+    <p class="text-4xl">🥳</p>
+    <h2>Finished!</h2>
 </div>

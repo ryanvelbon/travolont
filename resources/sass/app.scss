@@ -87,7 +87,21 @@ input[type="radio"] {
 }
 
 .form {
-    @apply p-4 sm:p-6 md:p-8 lg:p-12 bg-white border-double border-4 border-black;
+    @apply p-4 sm:p-6 md:p-8 lg:p-12 rounded-lg shadow-xl backdrop-contrast-200 bg-white/90;
+
+    h2 {
+        @apply text-2xl sm:text-3xl mb-4 text-primary-600 font-bold;
+    }
+
+    .form-label {
+        @apply block text-sm font-semibold mb-1;
+    }
+
+    input,
+    select,
+    textarea {
+        @apply bg-white border-b-2 border-gray-200 border-b-gray-900;
+    }
 }
 
 .form-input-error {

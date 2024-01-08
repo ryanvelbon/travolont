@@ -76,7 +76,7 @@
         <p class="text-lg md:text-2xl text-gray-700 mt-6">Whether you're an expert or looking to try something new, we have a place for you.</p>
     </div>
     <div x-data="{ page: 1, perPage: 4, totalItems: {{ $categories->count() }}, totalPages: Math.ceil({{ $categories->count() }} / 4) }" class="flex justify-center gap-8 items-center">
-        <button @click="page = page > 1 ? page - 1 : totalPages" class="hover:bg-gray-100 p-4 rounded-full"><i class="fa-regular fa-chevron-left text-2xl"></i></button>
+        <button @click="page = page > 1 ? page - 1 : totalPages" class="text-gray-600 hover:text-gray-900 p-6"><i class="fa-regular fa-chevron-left text-2xl"></i></button>
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach($categories as $category)
                 <li x-show="Math.ceil(({{ $loop->index + 1 }}) / perPage) === page">
@@ -88,7 +88,7 @@
                 </li>
             @endforeach
         </ul>
-        <button @click="page = page < totalPages ? page + 1 : 1" class="hover:bg-gray-100 p-4 rounded-full"><i class="fa-regular fa-chevron-right text-2xl"></i></button>
+        <button @click="page = page < totalPages ? page + 1 : 1" class="text-gray-600 hover:text-gray-900 p-6"><i class="fa-regular fa-chevron-right text-2xl"></i></button>
     </div>
 </section>
 <section class="bg-secondary-300 py-16">

@@ -29,8 +29,8 @@ class ProfileEditHost extends Component
         'host.biz_website'       => 'nullable',
         'host.title'             => 'required|min:10|max:80',
         'host.description'       => 'required|min:50|max:500',
-        'host.max_hours_per_day' => 'required|numeric|min:1|max:12',
         'host.n_days_per_week'   => 'required|numeric|min:1|max:7',
+        'host.max_hours_per_day' => 'required|numeric|min:1|max:12',
         'host.min_stay_days'     => 'required|numeric|min:1|max:180',
         'host.max_stay_days'     => 'required|numeric|min:1|max:180',
 

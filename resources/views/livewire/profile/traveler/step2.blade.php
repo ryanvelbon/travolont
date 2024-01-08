@@ -1,5 +1,5 @@
-<p class="text-gray-800 text-base sm:text-lg">Which city are you based in?</p>
-<p class="text-sm text-gray-600">Select the nearest city to your location</p>
+<h2>Which city are you based in?</h2>
+<p>Select the nearest city to your location</p>
 @error('traveler.current_city_id')
     <p class="input-error-msg">{{ $message }}</p>
 @endError

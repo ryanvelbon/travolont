@@ -1,3 +1,5 @@
+
+<h2>Tell travelers about the experience you are offering</h2>
 <div>
     <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
     <div class="relative mt-2">

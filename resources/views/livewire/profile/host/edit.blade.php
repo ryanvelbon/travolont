@@ -19,7 +19,7 @@
     @endif
     </div>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between mt-8">
         @if ($step > 1)
             <button wire:click="previousStep" class="btn btn-muted">Previous</button>
         @else

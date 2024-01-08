@@ -28,6 +28,18 @@ class ProfileEdit extends Component
         'dobYear'  => ['required', 'integer', 'between:1900,2003'],
     ];
 
+    protected $messages = [
+        'firstName.required' => 'What is your first name?',
+        'lastName.required' => 'What is yout last name?',
+        'nationalityId.required' => 'Which country were you born in?',
+        'sex.required' => 'What is your gender?',
+        'dobDay.required' => 'Pick a day',
+        'dobMonth.required' => 'Pick a month.',
+        'dobYear.required' => 'Pick a year',
+        'dob.required' => 'When were you born?',
+
+    ];
+
     public function mount()
     {
         $user = auth()->user();

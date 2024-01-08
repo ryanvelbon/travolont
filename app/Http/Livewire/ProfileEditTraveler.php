@@ -16,6 +16,10 @@ class ProfileEditTraveler extends Component
         'traveler.current_city_id' => 'required|exists:cities,id',
     ];
 
+    protected $messages = [
+        'traveler.current_city_id' => 'Please select one of the available cities',
+    ];
+
     public function mount()
     {
         $this->traveler = auth()->user()->travelerProfile;

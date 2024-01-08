@@ -11,8 +11,10 @@
         </div>
     @endif
 
+    <h2>Let's set up your profile</h2>
+
     <div>
-        <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+        <label class="form-label" for="photo">Photo</label>
         <div class="mt-2 flex items-center gap-x-3">
             <span class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
                 <img src="{{ auth()->user()->avatarUrl() }}" alt="Profile Photo">
@@ -28,7 +30,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-6 mt-8">
         <div>
-            <label for="firstName">First Name</label>
+            <label class="form-label" for="firstName">First Name</label>
 
             <div>
                 <input wire:model="firstName" id="firstName" type="text" class="w-full @error('firstName') form-input-error @endError">
@@ -39,7 +41,7 @@
         </div>
 
         <div>
-            <label for="lastName">Last Name</label>
+            <label class="form-label" for="lastName">Last Name</label>
 
             <div>
                 <input wire:model="lastName" id="lastName" type="text" class="w-full @error('lastName') form-input-error @endError">
@@ -50,7 +52,7 @@
         </div>
 
         <div>
-            <label for="nationality">Nationality</label>
+            <label class="form-label" for="nationality">Nationality</label>
             <select
                 wire:model="nationalityId"
                 id="nationality"
@@ -67,7 +69,7 @@
         </div>
 
         <div x-data="{ sex: @entangle('sex') }">
-            <label for="male">Gender</label>
+            <label class="form-label" for="male">Gender</label>
             <fieldset class="mt-4 flex justify-center space-x-2">
                 <label
                     class="radio-btn rounded-xl px-5 py-3"
@@ -93,7 +95,7 @@
     </div>
 
     <div class="mt-8">
-        <label for="dob_day">Birthday</label>
+        <label class="form-label" for="dob_day">Birthday</label>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-2">
             <select
                 wire:model="dobDay"
@@ -139,6 +141,7 @@
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>
-
-    <button type="submit" class="mt-4 btn btn-primary">Save</button>
+    <div class="mt-8 flex justify-end">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
 </form>
