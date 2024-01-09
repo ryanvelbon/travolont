@@ -88,8 +88,8 @@
                 </form>
             </div>
         </div>
-        <div class="mt-16 border-t border-secondary-100 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
-            <div class="flex space-x-5 md:order-2 text-yellow-100">
+        <div class="mt-16 border-t border-primary-800 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+            <div class="flex space-x-5 md:order-2 text-primary-500">
                 <a href="https://www.instagram.com/travolont/">
                     <i class="fa-brands fa-instagram fa-2xl hover:text-primary-400"></i>
                 </a>
@@ -106,7 +106,7 @@
                     <i class="fa-brands fa-pinterest fa-2xl hover:text-primary-400"></i>
                 </a>
             </div>
-            <p class="mt-8 text-sm leading-5 text-secondary-100 md:order-1 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+            <p class="mt-8 text-sm leading-5 text-primary-500 md:order-1 md:mt-0">&copy; {{ date('Y') }} Travolont | All rights reserved.</p>
         </div>
     </div>
 </footer>
