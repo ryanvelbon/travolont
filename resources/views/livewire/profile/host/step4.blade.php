@@ -5,13 +5,13 @@
             <label class="text-gray-800 text-base sm:text-lg">
                 How many days per week?
             </label>
-            <select wire:model.live="host.n_days_per_week">
+            <select wire:model.live="nDaysPerWeek">
                 @for($i=1; $i<=7; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor
             </select>
         </div>
-        @error('host.n_days_per_week')
+        @error('nDaysPerWeek')
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>
@@ -21,13 +21,13 @@
             <label class="text-gray-800 text-base sm:text-lg">
                 Maximum hours expected to work in a day?
             </label>
-            <select wire:model.live="host.max_hours_per_day">
+            <select wire:model.live="maxHoursPerDay">
                 @for($i=1; $i<=12; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'hour' : 'hours' }}</option>
                 @endfor
             </select>
         </div>
-        @error('host.max_hours_per_day')
+        @error('maxHoursPerDay')
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>
@@ -37,7 +37,7 @@
             <label class="text-gray-800 text-base sm:text-lg">
                 What is the minimum duration of stay?
             </label>
-            <select wire:model.live="host.min_stay_days">
+            <select wire:model.live="minStayDays">
                 @for($i=1; $i<=6; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor
@@ -49,7 +49,7 @@
                 @endfor
             </select>
         </div>
-        @error('host.min_stay_days')
+        @error('minStayDays')
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>
@@ -59,7 +59,7 @@
             <label class="text-gray-800 text-base sm:text-lg">
                 What is the maximum duration of stay?
             </label>
-            <select wire:model.live="host.max_stay_days">
+            <select wire:model.live="maxStayDays">
                 @for($i=1; $i<=6; $i++)
                     <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'day' : 'days' }}</option>
                 @endfor
@@ -71,7 +71,7 @@
                 @endfor
             </select>
         </div>
-        @error('host.max_stay_days')
+        @error('maxStayDays')
             <div class="input-error-msg">{{ $message }}</div>
         @endError
     </div>

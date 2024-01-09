@@ -1,7 +1,7 @@
 <div>
     <h2>Are you a registered business?</h2>
-    <input wire:model="host.is_registered_biz" type="checkbox">
-    @error('host.is_registered_biz')
+    <input wire:model="isRegisteredBiz" type="checkbox">
+    @error('isRegisteredBiz')
         <p class="input-error-msg">{{ $message }}</p>
     @endError
 </div>
@@ -10,55 +10,55 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-2">
         <div class="sm:col-span-2">
             <label class="form-label">Name</label>
-            <input wire:model="host.biz_name" type="text" class="w-full">
-            @error('host.biz_name')
+            <input wire:model="bizName" type="text" class="w-full">
+            @error('bizName')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div>
             <label class="form-label">Type</label>
-            <select wire:model="host.biz_type" class="w-full">
+            <select wire:model="bizType" class="w-full">
                 <option value="">-- select --</option>
                 @foreach(App\Models\Host::BIZ_TYPE_SELECT as $key => $label)
                     <option value="{{ $key }}">{{ $label }}</option>
                 @endforeach
             </select>
-            @error('host.biz_type')
+            @error('bizType')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div>
             <label class="form-label">Registration Number</label>
-            <input wire:model="host.biz_reg_no" type="text" class="w-full">
-            @error('host.biz_reg_no')
+            <input wire:model="bizRegNo" type="text" class="w-full">
+            @error('bizRegNo')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div class="sm:col-span-2">
             <label class="form-label">Address</label>
-            <input wire:model="host.biz_address" type="text" class="w-full">
-            @error('host.biz_address')
+            <input wire:model="bizAddress" type="text" class="w-full">
+            @error('bizAddress')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div>
             <label class="form-label">Email</label>
-            <input wire:model="host.biz_email" type="email" class="w-full">
-            @error('host.biz_email')
+            <input wire:model="bizEmail" type="email" class="w-full">
+            @error('bizEmail')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div>
             <label class="form-label">Phone</label>
-            <input wire:model="host.biz_phone" type="text" class="w-full">
-            @error('host.biz_phone')
+            <input wire:model="bizPhone" type="text" class="w-full">
+            @error('bizPhone')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>
         <div>
             <label class="form-label">Website</label>
-            <input wire:model="host.biz_website" type="text" class="w-full">
-            @error('host.biz_website')
+            <input wire:model="bizWebsite" type="text" class="w-full">
+            @error('bizWebsite')
                 <p class="input-error-msg">{{ $message }}</p>
             @endError
         </div>

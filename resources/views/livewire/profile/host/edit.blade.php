@@ -1,4 +1,4 @@
-<div class="form sm:mx-auto sm:w-full sm:max-w-xl">
+<form wire:submit.prevent="nextStep" class="form sm:mx-auto sm:w-full sm:max-w-xl">
     <div class="bg-test-1 min-h-[350]">
     @if ($step === 1)
         @include('livewire.profile.host.step1')
@@ -21,16 +21,16 @@
 
     <div class="flex justify-between mt-8">
         @if ($step > 1)
-            <button wire:click="previousStep" class="btn btn-muted">Previous</button>
+            <button type="button" wire:click="previousStep" class="btn btn-muted">Previous</button>
         @else
             <div>
                 <!-- Empty div for justify-between to work properly. -->
             </div>
         @endif
         @if ($step === 8)
-            <a class="btn btn-primary" href="{{ route('hosts.show', $host->user->username ) }}">Preview Profile</a>
+            <a class="btn btn-primary" href="{{ route('hosts.show', auth()->user()->username ) }}">Preview Profile</a>
         @else
-            <button wire:click="step{{ $step }}" class="btn btn-primary">Next</button>
+            <button type="submit" class="btn btn-primary">Next</button>
         @endif
     </div>
-</div>
+</form>
