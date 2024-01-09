@@ -1,29 +1,45 @@
-
-<h2>Tell travelers about the experience you are offering</h2>
-<div>
-    <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
-    <div class="relative mt-2">
-        <input wire:model="title" type="text" id="title" class="peer block w-full border-0 bg-gray-50 py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Give a catchy title for the experience you are offering">
-        <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-indigo-600" aria-hidden="true"></div>
-        @error('title')
-            <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
+<h2>How will volunteers be compensated for their work?</h2>
+<div class="space-y-8">
+    <div>
+        <p>Accommodation</p>
+        <div class="flex gap-4">
+            @foreach(App\Models\Host::ACCOMMODATION_SELECT as $key => $label)
+                <label>
+                    <input wire:model="accommodation" type="radio" value="{{ $key }}" />
+                    <span>{{ $label }}</span>
+                </label>
+            @endforeach
+        </div>
+        @error('accommodation')
+            <p class="input-error-msg">{{ $message }}</p>
         @endError
     </div>
-</div>
-
-<div class="mt-4">
-    <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
-    <div class="mt-2">
-        <textarea
-            wire:model="description"
-            id="description"
-            spellcheck="false"
-            rows="8"
-            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        ></textarea>
+    <div>
+        <div class="flex justify-between">
+           <p>How many free meals per day?</p> 
+           <input wire:model="nMealsPerDay" type="number" min=0 max=5 />
+        </div>
+        @error('nMealsPerDay')
+            <p class="input-error-msg">{{ $message }}</p>
+        @endError
     </div>
-    <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the experience.</p>
-    @error('description')
-        <div class="text-red-700 mt-1 text-xs">{{ $message }}</div>
-    @endError
+    <div>
+        <p>What is the hourly pay?</p>
+        <p>State the rate in {{ $country['currency_name'] }}</p>
+        <div>
+            <label class="form-label" for="price">Price</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <span class="text-gray-500 sm:text-sm">{{ $country['currency_symbol'] }}</span>
+                </div>
+                <input wire:model="wage" type="text" id="price" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00" aria-describedby="price-currency" />
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <span class="text-gray-500 sm:text-sm" id="price-currency">{{ $country['currency'] }}</span>
+                </div>
+            </div>
+        </div>
+        @error('wage')
+            <p class="input-error-msg">{{ $message }}</p>
+        @endError
+    </div>
 </div>

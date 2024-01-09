@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\City;
 use App\Models\HostType;
 use App\Models\Service;
 use Illuminate\Support\Facades\Cache;
@@ -28,7 +29,13 @@ class ProfileEditHost extends Component
     public $maxHoursPerDay;
     public $minStayDays;
     public $maxStayDays;
+    public $nMealsPerDay;
+    public $wage;
+    public $currency;
+    public $accommodation;
     public $selectedServices = [];
+
+    public $country;
 
     protected $stepRules = [
         1 => [
@@ -48,15 +55,21 @@ class ProfileEditHost extends Component
             'bizWebsite' => 'nullable',
         ],
         4 => [
+            'selectedServices' => 'required|array|min:3|distinct',
+        ],
+        5 => [
             'nDaysPerWeek' => 'required|numeric|min:1|max:7',
             'maxHoursPerDay' => 'required|numeric|min:1|max:12',
             'minStayDays' => 'required|numeric|min:1|max:180',
             'maxStayDays' => 'required|numeric|min:1|max:180',
         ],
-        5 => [
-            'selectedServices' => 'required|array|min:3|distinct',
-        ],
         6 => [
+            'nMealsPerDay' => 'required|numeric|min:0|max:5',
+            'wage' => 'required',
+            'currency' => 'required',
+            'accommodation' => 'required',
+        ],
+        7 => [
             'title' => 'required|min:10|max:80',
             'description' => 'required|min:50|max:500',
         ],
@@ -115,6 +128,10 @@ class ProfileEditHost extends Component
             'n_days_per_week' => $this->nDaysPerWeek,
             'min_stay_days' => $this->minStayDays,
             'max_stay_days' => $this->maxStayDays,
+            'n_meals_per_day' => $this->nMealsPerDay,
+            'wage' => $this->wage,
+            'currency' => $this->currency,
+            'accommodation' => $this->accommodation,
         ]);
 
         $host->helpNeeded()->sync($this->selectedServices);
@@ -142,6 +159,11 @@ class ProfileEditHost extends Component
     public function updateCity($id)
     {
         $this->cityId = $id;
+
+        $this->country = City::find($id)->country
+            ->only('currency', 'currency_name', 'currency_symbol');
+
+        $this->currency = $this->country['currency'];
     }
 
     public function previousStep()

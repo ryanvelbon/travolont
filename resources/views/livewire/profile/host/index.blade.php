@@ -162,7 +162,7 @@
                                         <div class="flex gap-4">
                                             <div class="flex-1">
                                                 <h2 class="text-lg font-bold text-gray-800 mb-2">Learn Organic Farming in the Heart of Bali</h2>
-                                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                <p class="text-gray-600">{{ $host->description }}</p>
                                             </div>
                                             <div>
                                                 <img
@@ -176,19 +176,23 @@
                                             <ul class="emoji-info-list grid grid-cols-3 gap-4 text-gray-700 text-sm">
                                                 <li>
                                                     <dt>🕓</dt>
-                                                    <dd>10 hours<sub>per week</sub></dd>
+                                                    <dd>{{ $host->max_hours_per_day }} hours<sub>per day</sub></dd>
                                                 </li>
                                                 <li>
                                                     <dt>💰</dt>
-                                                    <dd>VND 50.000<sub>per hour</sub></dd>
+                                                    @if($host->wage > 0)
+                                                        <dd>{{ $host->currency }} {{ $host->wage }}<sub>per hour</sub></dd>
+                                                    @else
+                                                        <dd class="bg-gray-200 text-gray-700 uppercase px-2 -py-1">No Pay</dd>
+                                                    @endif
                                                 </li>
                                                 <li>
                                                     <dt>🍽</dt>
-                                                    <dd>3 meals<sub>per day</sub></dd>
+                                                    <dd>{{ $host->n_meals_per_day }} meals<sub>per day</sub></dd>
                                                 </li>
                                                 <li>
                                                     <dt>🛏</dt>
-                                                    <dd>private room</dd>
+                                                    <dd>{{ $host->accommodation }}</dd>
                                                 </li>
                                             </ul>
                                         </div>

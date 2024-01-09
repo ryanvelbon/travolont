@@ -29,6 +29,10 @@ class Host extends Model
         'n_days_per_week',
         'min_stay_days',
         'max_stay_days',
+        'n_meals_per_day',
+        'wage',
+        'currency',
+        'accommodation',
     ];
 
     public const BIZ_TYPE_SELECT = [
@@ -38,6 +42,12 @@ class Host extends Model
         'public'      => 'Public Limited Company',
         'nonprofit'   => 'Nonprofit / NGO',
         'other'       => 'Other',
+    ];
+
+    public const ACCOMMODATION_SELECT = [
+        'shared'  => 'Shared Room',
+        'private' => 'Private Room',
+        'entire' => 'Entire Place',
     ];
 
     public function user()

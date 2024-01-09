@@ -24,13 +24,17 @@ return new class extends Migration
             $table->string('biz_website')->nullable();
 
             $table->text('feat_img')->nullable();
-            $table->string('title')->nullable();
             $table->unsignedBigInteger('type_id')->nullable();
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->unsignedTinyInteger('max_hours_per_day')->nullable();
             $table->unsignedTinyInteger('n_days_per_week')->nullable();
             $table->unsignedTinyInteger('min_stay_days')->nullable();
             $table->unsignedTinyInteger('max_stay_days')->nullable();
+            $table->unsignedTinyInteger('n_meals_per_day')->nullable();
+            $table->decimal('wage', 8, 2)->nullable();
+            $table->string('currency', 3)->nullable();
+            $table->string('accommodation')->nullable();
 
             $table->timestamps();
 
