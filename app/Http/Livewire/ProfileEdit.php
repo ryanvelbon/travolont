@@ -104,9 +104,9 @@ class ProfileEdit extends Component
 
         switch ($user->account_type) {
             case 'host':
-                return redirect()->route('profile.edit.host');
+                return $this->redirect(route('profile.edit.host'), navigate: true);
             case 'traveler':
-                return redirect()->route('profile.edit.traveler');
+                return $this->redirect(route('profile.edit.traveler'), navigate: true);
             default:
                 return redirect()->route('home');
         }
