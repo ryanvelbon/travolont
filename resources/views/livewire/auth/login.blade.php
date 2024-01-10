@@ -20,10 +20,10 @@
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-            <form wire:submit.prevent="authenticate">
+        <div>
+            <form wire:submit.prevent="authenticate" class="form">
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="email" class="form-label">
                         Email address
                     </label>
 
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="password" class="form-label">
                         Password
                     </label>
 

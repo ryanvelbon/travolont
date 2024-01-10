@@ -19,10 +19,10 @@
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-            <form wire:submit.prevent="register">
+        <div>
+            <form wire:submit.prevent="register" class="form">
                 <div>
-                    <label for="username" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="username" class="form-label">
                         Username
                     </label>
 
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="email" class="form-label">
                         Email address
                     </label>
 
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="password" class="form-label">
                         Password
                     </label>
 
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="password_confirmation" class="form-label">
                         Confirm Password
                     </label>
 
