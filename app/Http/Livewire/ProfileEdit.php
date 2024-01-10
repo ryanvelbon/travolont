@@ -15,18 +15,21 @@ class ProfileEdit extends Component
     public $firstName, $lastName, $dob, $sex, $nationalityId, $avatar;
     public $dobDay, $dobMonth, $dobYear;
 
-    protected $rules = [
-        'firstName'     => 'required|min:2',
-        'lastName'      => 'required|min:2',
-        'dob'           => 'required|date',
-        'sex'           => 'required|in:m,f',
-        'nationalityId' => 'required|exists:countries,id',
-        'avatar'        => 'nullable|image|max:1000',
+    public function rules()
+    {
+        return [
+            'firstName'     => 'required|min:2',
+            'lastName'      => 'required|min:2',
+            'dob'           => 'required|date',
+            'sex'           => 'required|in:m,f',
+            'nationalityId' => 'required|exists:countries,id',
+            'avatar'        => 'nullable|image|max:1000',
 
-        'dobDay'   => ['required', 'integer', 'between:1,31'],
-        'dobMonth' => ['required', 'integer', 'between:1,12'],
-        'dobYear'  => ['required', 'integer', 'between:1900,2003'],
-    ];
+            'dobDay'   => ['required', 'integer', 'between:1,31'],
+            'dobMonth' => ['required', 'integer', 'between:1,12'],
+            'dobYear'  => ['required', 'integer', 'between:' . (date('Y') - 100) . ',' . (date('Y') - 18)],
+        ];
+    }
 
     protected $messages = [
         'firstName.required' => 'What is your first name?',
