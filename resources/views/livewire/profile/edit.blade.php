@@ -121,9 +121,16 @@
                 class="mt-2 block w-full"
             >
                 <option selected>Year</option>
-                @for($i=2010; $i>=1900; $i--)
+                @php
+                    $currentYear = date('Y');
+                    $startYear = $currentYear - 100;
+                    $endYear = $currentYear - 18;
+                @endphp
+
+                @for ($i = $endYear; $i >= $startYear; $i--)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
+
             </select>
         </div>
         <div>
