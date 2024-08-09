@@ -9,15 +9,25 @@ use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 
 class TravelersIndex extends Component
 {
     use WithPagination;
 
+    #[Url]
     public $sex;
+
+    #[Url]
     public $nationality;
+
+    #[Url]
     public $minAge = 18;
+
+    #[Url]
     public $maxAge = 80;
+
+    #[Url]
     public $currentCity;
 
     protected $rules = [

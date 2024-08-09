@@ -8,12 +8,16 @@ use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 
 class HostsIndex extends Component
 {
     use WithPagination;
 
+    #[Url]
     public $selectedCity;
+
+    #[Url]
     public $selectedHostTypes = [];
 
     #[On('city-selected')]
